@@ -17,6 +17,8 @@ class CelebrityScraper:
         chrome_options.add_argument("--headless")
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
         self.url = "https://www.thefamouspeople.com/21st-century.php"
+        self.content_loaded = False
+        self.celebrities_name = None
 
     def dynamically_load_content(self, n_scrolls=50, sleep_time=0.5):
         """"
@@ -35,3 +37,21 @@ class CelebrityScraper:
             html_body.send_keys(Keys.PAGE_DOWN)
             sleep(sleep_time)
 
+        self.content_loaded = True
+
+    def get_celebrities_name(self):
+        """
+        Method to scrape the celebrities name.
+
+        Return:
+             List of celebrity names
+        """
+
+        # Make sure content is loaded
+        if not self.content_loaded:
+            self.dynamically_load_content()
+
+        main_page = self.driver.find_element(By.ID, "main-mp-content")
+        celebrity_names = main_page.find_elements(By.CLASS_NAME, "tileLink")
+
+        return [name.text for name in celebrity_names if name.text != ""]
