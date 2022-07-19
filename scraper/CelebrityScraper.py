@@ -17,10 +17,11 @@ class CelebrityScraper:
         chrome_options.add_argument("--headless")
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
         self.url = "https://www.thefamouspeople.com/21st-century.php"
+        self.driver.get(url=self.url)
         self.content_loaded = False
         self.celebrities_name = None
 
-    def dynamically_load_content(self, n_scrolls=50, sleep_time=0.5):
+    def load_content(self, n_scrolls=50, sleep_time=0.5):
         """"
         This website loads content dynamically. Therefore, the scraper needs to 'scroll down' to load content. The sleep
         time is used to ensure that the scraper doesn't scroll to the very bottom of the page, and allows content to load.
@@ -49,7 +50,7 @@ class CelebrityScraper:
 
         # Make sure content is loaded
         if not self.content_loaded:
-            self.dynamically_load_content()
+            self.load_content()
 
         main_page = self.driver.find_element(By.ID, "main-mp-content")
         celebrity_names = main_page.find_elements(By.CLASS_NAME, "tileLink")
