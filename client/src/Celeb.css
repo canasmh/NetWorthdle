@@ -1,9 +1,8 @@
 div.celeb-container h1 {
     font-size: 32px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    
-    margin: 1.2rem 0.2rem;
+    font-weight: 600;
+    margin: 0.8rem 0.2rem;
 }
 
 div.celeb-container p {
@@ -11,6 +10,7 @@ div.celeb-container p {
     margin: 0.5rem auto;
     font-family: 'Roboto Slab', serif;
     font-weight: 400;
+    margin: 0.3rem auto;
 }
 
 div.celeb-container a {
@@ -31,6 +31,7 @@ div.celeb-container a:hover {
 
     div.celeb-container p {
         font-size: 24px;
+        margin: 0.5rem auto;
     }
 }
 
