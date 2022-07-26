@@ -11,11 +11,11 @@ function Celeb() {
             <p>Occupation: First Occ, Second Occ, Third Occ</p>
             <Container>
                 <Row>
-                    <Col xsm={12}>Google Search: <a href="http://google.com/search?q=Dwayne+Johnson" target="_blank" rel="noreferrer">Manuel Canas</a></Col>
+                    <Col xsm={12}><p>Google Search: <a href="http://google.com/search?q=Dwayne+Johnson" target="_blank" rel="noreferrer">Manuel Canas</a></p></Col>
                 </Row>
                 <Row>
-                    <Col xsm={6}>Birthday: June 26, 1996</Col>
-                    <Col xsm={6}>Country of Origin: Colombia</Col>
+                    <Col xsm={6}><p>Birthday: June 26, 1996</p></Col>
+                    <Col xsm={6}><p>Country of Origin: Colombia</p></Col>
                 </Row>
             </Container>
         </div>
