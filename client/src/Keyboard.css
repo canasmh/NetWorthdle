@@ -1,0 +1,51 @@
+.keyboard {
+    position: fixed;
+    width: 350px;
+    bottom: 0;
+    text-align: center;
+    padding: 0;
+    left: 50%;
+    margin-left: -175px;
+}
+
+
+.keyboard-row {
+    display: block;
+}
+
+button.keyboard-button {
+    font-family: 'Roboto Mono', monospace;
+    display: inline-block;
+    font-size: 20px;
+    width: 104px;
+    height: 40px;
+    margin: 2px;
+    color: #FFF;
+    background-color: #355764;
+    border-radius: 10px;
+    border: 1px solid #81CACF;
+}
+
+@media only screen and (min-width: 600px) {
+    .keyboard {
+        width: 600px;
+        margin-left: -300px;
+    }
+
+    button.keyboard-button {
+        font-size: 40px;
+        height: 92px;
+        width: 180px;
+        border: 2px solid #81CACF;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    button.keyboard-button {
+        font-size: 32px;
+        height: 64px;
+        width: 156px;
+    }
+
+}
