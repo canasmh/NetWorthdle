@@ -8,7 +8,7 @@ function Celeb() {
 
     return (
         <div className="celeb-container">
-            <h1 >Manuel Cañas</h1>
+            <h1><span className="gold">Manuel</span> Canas</h1>
             <p><strong>Occupation:</strong> Developer, Astrophysicist</p>
             <Container>
                 <Row>
