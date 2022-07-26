@@ -4,10 +4,10 @@ html {
 }
 
 body {
-  background-color: #000;
+  background-color: #355764;
   color: #FFF;
   text-align: center;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .app {
@@ -16,7 +16,7 @@ body {
 
 @media only screen and (min-width: 600px) {
   .app {
-    width: 400px;
+    width: 650px;
   }
 }
 
