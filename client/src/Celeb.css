@@ -24,6 +24,14 @@ div.celeb-container a:hover {
     text-decoration: none;
 }
 
+.green {
+    color: #5A8F7B;
+  }
+  
+  .gold {
+    color: #FFEA11;
+  }
+
 @media only screen and (min-width: 600px) {
     div.celeb-container h1 {
         font-size: 52px;

@@ -1,0 +1,15 @@
+.game-board {
+    min-height: 15vh;
+    max-height: 30vh;
+    overflow-y: scroll;
+    margin: 0.6rem auto;
+    width: 90%;
+    border: 2px solid #81CACF;
+    border-radius: 15px;
+}
+
+@media only screen and (min-width: 600px) {
+    .game-board {
+        width: 75%;
+    }
+}
