@@ -4,19 +4,35 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import "./Celeb.css"
 
-function Celeb() {
+function Celeb(props) {
+
+    const occ = props.celebData.occupation;
+    const name = props.celebData.name;
+
+    var occupation = "";
+    const query = "http://google.com/search?q=" + name.split(' ').join('+')
+
+    for (let i = 0; i < occ.length; i++) {
+        if (occ[i]) {
+            occupation += occ[i]
+        }
+
+        if (i < occ.length - 1) {
+            occupation += ", "
+        }
+    }
 
     return (
         <div className="celeb-container">
-            <h1>Manuel Canas</h1>
-            <p><strong>Occupation:</strong> Developer, Astrophysicist</p>
+            <h1>{name}</h1>
+            <p><strong>Occupation: </strong>{occupation}</p>
             <Container>
                 <Row>
-                    <Col xsm={12}><p><strong>Google Search:</strong> <a href="http://google.com/search?q=Dwayne+Johnson" target="_blank" rel="noreferrer">Manuel Canas</a></p></Col>
+                    <Col xsm={12}><p><strong>Google Search:</strong> <a href={query} target="_blank" rel="noreferrer">Manuel Canas</a></p></Col>
                 </Row>
                 <Row>
-                    <Col xsm={6}><p><strong>Birthday:</strong> June 26, 1996</p></Col>
-                    <Col xsm={6}><p><strong>Nationality:</strong> Colombia</p></Col>
+                    <Col xsm={6}><p><strong>Birthday: </strong>{props.celebData.birthday}</p></Col>
+                    <Col xsm={6}><p><strong>Nationality: </strong>{props.celebData.nationality}</p></Col>
                 </Row>
             </Container>
         </div>
