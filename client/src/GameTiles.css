@@ -43,15 +43,29 @@ select {
     border-radius: 8px!important;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 320px) {
     input[type=text] {
-        height: 64px;
-        width: 64px;
+        height: 32px;
+        width: 32px;
     }
 
     select {
-        height: 64px;
-        width: 192px;
+        font-size: 10px!important;
+        padding: 0;
+        height: 32px;
+        width: 96px !important;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    input[type=text] {
+        height: 72px;
+        width: 72px;
+    }
+
+    select {
+        height: 72px;
+        width: 214px;
     }
 }
 

@@ -26,6 +26,25 @@ button.keyboard-button {
     border: 1px solid #81CACF;
 }
 
+button.keyboard-button:hover {
+    color: #355764;
+    background-color: #FFF;
+}
+
+@media only screen and (max-width: 320px) {
+    .keyboard {
+        width: 280px;
+        margin-left: -140px;
+    }
+
+    button.keyboard-button {
+        font-size: 16px;
+        height: 32px;
+        width: 68px;
+        border: 2px solid #81CACF;
+    }
+}
+
 @media only screen and (min-width: 600px) {
     .keyboard {
         width: 600px;
@@ -33,9 +52,9 @@ button.keyboard-button {
     }
 
     button.keyboard-button {
-        font-size: 36px;
-        height: 56px;
-        width: 132px;
+        font-size: 40px;
+        height: 88px;
+        width: 176px;
         border: 2px solid #81CACF;
     }
 }

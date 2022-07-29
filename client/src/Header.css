@@ -1,0 +1,72 @@
+div.header {
+    border: 1px solid #81CACF;
+    border-left: none;
+    border-right: none;
+    margin: 10px auto;
+    width: 80%;
+}
+div.header h1 {
+    margin: 10px auto;
+    font-size: 24px;
+    font-weight: 600;
+    display: inline-block;
+    font-family: 'Roboto Slab', serif;
+}
+
+.header span.left {
+    font-size: 12px;
+    float: left;
+    margin: 17px auto 10px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.header span.right {
+    font-size: 12px;
+    float: right;
+    margin: 17px auto 10px;
+    font-family: 'Roboto Slab', serif;
+}
+
+@media only screen and (max-width: 320px) {
+    div.header h1 {
+        margin: 10px auto;
+        font-size: 20px;
+    }
+
+    .header span.left, .header span.right {
+        font-size: 10px;
+        margin: 16px auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    div.header h1 {
+        margin: 16px auto;
+        font-size: 40px;
+    }
+
+    .header span.left, .header span.right {
+        font-size: 20px;
+        margin: 28px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    div.header h1 {
+        margin: 14px auto;
+        font-size: 32px;
+    }
+
+    .header span.left, .header span.right {
+        font-size: 20px;
+        margin: 19px;
+    }
+}
+
+h1 span.green {
+    color: #5A8F7B;
+}
+
+h1 span.gold {
+    color: #FFEA11;
+}
