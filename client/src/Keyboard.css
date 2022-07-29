@@ -26,6 +26,20 @@ button.keyboard-button {
     border: 1px solid #81CACF;
 }
 
+@media only screen and (max-width: 320px) {
+    .keyboard {
+        width: 280px;
+        margin-left: -140px;
+    }
+
+    button.keyboard-button {
+        font-size: 16px;
+        height: 32px;
+        width: 68px;
+        border: 2px solid #81CACF;
+    }
+}
+
 @media only screen and (min-width: 600px) {
     .keyboard {
         width: 600px;

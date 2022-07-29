@@ -27,6 +27,18 @@ div.header h1 {
     font-family: 'Roboto Slab', serif;
 }
 
+@media only screen and (max-width: 320px) {
+    div.header h1 {
+        margin: 10px auto;
+        font-size: 20px;
+    }
+
+    .header span.left, .header span.right {
+        font-size: 10px;
+        margin: 16px auto;
+    }
+}
+
 @media only screen and (min-width: 600px) {
     div.header h1 {
         margin: 16px auto;
