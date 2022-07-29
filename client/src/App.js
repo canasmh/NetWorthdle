@@ -18,13 +18,15 @@ function App() {
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
+  const [moneyUnit, setMoneyUnit] = useState("thousand");
+  console.log(currentGuess, guesses)
 
   return (
     <div className="app">
       <Header />
       <Celeb celebData={celebData} />
-      <GameBoard guesses={guesses} currentGuess={currentGuess} />
-      <Keyboard setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} />
+      <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit}/>
+      <Keyboard moneyUnit={moneyUnit} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} />
     </div>
   );
 }
