@@ -14,13 +14,13 @@ div.celeb-container p {
 }
 
 div.celeb-container a {
-    color: #81CACF;
+    color: #FFEA11;
     text-decoration: none;
     font-family: 'Roboto Slab', serif;
 }
 
 div.celeb-container a:hover {
-    color: #FFEA11;
+    color: #81CACF;
     text-decoration: none;
 }
 
