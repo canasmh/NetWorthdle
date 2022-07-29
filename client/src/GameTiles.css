@@ -45,13 +45,13 @@ select {
 
 @media only screen and (min-width: 600px) {
     input[type=text] {
-        height: 80px;
-        width: 80px;
+        height: 72px;
+        width: 72px;
     }
 
     select {
-        height: 80px;
-        width: 240px;
+        height: 72px;
+        width: 214px;
     }
 }
 
