@@ -16,12 +16,15 @@ function App() {
     "nationality": "Colombia"
   })
 
+  const [currentGuess, setCurrentGuess] = useState("");
+  const [guesses, setGuesses] = useState([]);
+
   return (
     <div className="app">
       <Header />
       <Celeb celebData={celebData} />
-      <GameBoard />
-      <Keyboard />
+      <GameBoard guesses={guesses} currentGuess={currentGuess} />
+      <Keyboard setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} />
     </div>
   );
 }
