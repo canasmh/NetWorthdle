@@ -26,6 +26,11 @@ button.keyboard-button {
     border: 1px solid #81CACF;
 }
 
+button.keyboard-button:hover {
+    color: #355764;
+    background-color: #FFF;
+}
+
 @media only screen and (max-width: 320px) {
     .keyboard {
         width: 280px;
