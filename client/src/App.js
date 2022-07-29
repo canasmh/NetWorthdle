@@ -10,7 +10,7 @@ function App() {
 
   const [celebData, setCelebData] = useState({
     "name": "Manuel Hernando Canas",
-    "occupation": ["developer", "astrophysics", "tv-watcher"],
+    "occupation": ["developer", "astrophysicist", "music listener"],
     "net_worth": "999 million",
     "birthday": "June 26, 1996",
     "nationality": "Colombia"
