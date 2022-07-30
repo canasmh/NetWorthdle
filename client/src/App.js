@@ -16,12 +16,17 @@ function App() {
     "nationality": "Colombia"
   })
 
+  const [currentGuess, setCurrentGuess] = useState("");
+  const [guesses, setGuesses] = useState([]);
+  const [moneyUnit, setMoneyUnit] = useState("thousand");
+  console.log(currentGuess, guesses)
+
   return (
     <div className="app">
       <Header />
       <Celeb celebData={celebData} />
-      <GameBoard />
-      <Keyboard />
+      <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit}/>
+      <Keyboard moneyUnit={moneyUnit} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} />
     </div>
   );
 }
