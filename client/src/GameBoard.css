@@ -1,6 +1,6 @@
 .game-board {
     min-height: 15vh;
-    max-height: 28vh;
+    max-height: 25vh;
     overflow-y: scroll;
     margin: 0.6rem auto;
     width: 90%;
@@ -17,5 +17,6 @@
 @media only screen and (min-width: 992px) {
     .game-board {
         width: 75%;
+        max-height: 28vh;
     }
 }
