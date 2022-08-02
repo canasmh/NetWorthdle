@@ -31,6 +31,21 @@ button.keyboard-button:hover {
     background-color: #FFF;
 }
 
+.correct {
+    background-color: #5A8F7B!important;
+    color: #FFF!important;
+}
+  
+.present {
+    background-color: #FFEA11!important;
+    color: #FFF!important;
+}
+  
+.absent {
+    background-color: #373737!important;
+    color: #FFF!important;
+}
+
 @media only screen and (max-width: 320px) {
     .keyboard {
         width: 280px;
