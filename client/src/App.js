@@ -27,8 +27,6 @@ function App() {
     fifthRow: []
   });
 
-  console.log(currentGuess, guesses)
-
   return (
     <div className="app">
       <Header />

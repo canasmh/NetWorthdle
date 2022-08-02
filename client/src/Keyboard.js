@@ -83,8 +83,6 @@ function Keyboard(props) {
 
         updateTiles(tileClasses);
         updateKeys(keyClasses);
-        console.log(tileClasses);
-        console.log(keyClasses);
     }
 
     function updateCurrentGuess(event) {
