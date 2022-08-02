@@ -11,7 +11,7 @@ function App() {
   const [celebData, setCelebData] = useState({
     "name": "Manuel Hernando Canas",
     "occupation": ["developer", "astrophysicist", "music listener"],
-    "net_worth": "655 million",
+    "net_worth": "135 million",
     "birthday": "June 26, 1996",
     "nationality": "Colombia"
   })
@@ -33,7 +33,7 @@ function App() {
     <div className="app">
       <Header />
       <Celeb celebData={celebData} />
-      <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit}/>
+      <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit} tileClasses={tileClasses}/>
       <Keyboard moneyUnit={moneyUnit} nGuesses={guesses.length}currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} setTileClasses={setTileClasses} netWorth={celebData.net_worth} />
     </div>
   );

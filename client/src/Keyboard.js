@@ -64,8 +64,12 @@ function Keyboard(props) {
                 }
                     
             }
+        }
 
-            
+        if (guess.includes(unit)) {
+            tileClasses.push("correct")
+        } else {
+            tileClasses.push("absent")
         }
 
         updateTiles(tileClasses)
