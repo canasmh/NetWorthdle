@@ -11,7 +11,7 @@ function App() {
   const [celebData, setCelebData] = useState({
     "name": "Manuel Hernando Canas",
     "occupation": ["developer", "astrophysicist", "music listener"],
-    "net_worth": "999 million",
+    "net_worth": "655 million",
     "birthday": "June 26, 1996",
     "nationality": "Colombia"
   })
@@ -19,6 +19,14 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [moneyUnit, setMoneyUnit] = useState("thousand");
+  const [tileClasses, setTileClasses] = useState({
+    firstRow: [],
+    secondRow: [],
+    thirdRow: [],
+    fourthRow: [],
+    fifthRow: []
+  });
+
   console.log(currentGuess, guesses)
 
   return (
@@ -26,7 +34,7 @@ function App() {
       <Header />
       <Celeb celebData={celebData} />
       <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit}/>
-      <Keyboard moneyUnit={moneyUnit} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} />
+      <Keyboard moneyUnit={moneyUnit} nGuesses={guesses.length}currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} setTileClasses={setTileClasses} netWorth={celebData.net_worth} />
     </div>
   );
 }
