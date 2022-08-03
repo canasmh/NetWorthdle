@@ -13,17 +13,22 @@ div.header h1 {
     font-family: 'Roboto Slab', serif;
 }
 
+.fa-circle-dollar {
+    font-size: 16px;
+    margin-right: 3px;
+}
+
 .header span.left {
-    font-size: 12px;
+    font-size: 16px;
     float: left;
-    margin: 17px auto 10px;
+    margin: 14px 8px 14px;
     font-family: 'Roboto Slab', serif;
 }
 
 .header span.right {
-    font-size: 12px;
+    font-size: 16px;
     float: right;
-    margin: 17px auto 10px;
+    margin: 14px 8px 14px;
     font-family: 'Roboto Slab', serif;
 }
 
@@ -46,8 +51,13 @@ div.header h1 {
     }
 
     .header span.left, .header span.right {
-        font-size: 20px;
-        margin: 28px;
+        font-size: 28px;
+        margin: 20px 24px 20px;
+    }
+
+    .fa-circle-dollar {
+        font-size: 24px;
+        margin-right: 5px;
     }
 }
 
@@ -58,8 +68,13 @@ div.header h1 {
     }
 
     .header span.left, .header span.right {
-        font-size: 18px;
-        margin: 20px;
+        font-size: 24px;
+        margin: 18px 24px 18px;
+    }
+
+    .fa-circle-dollar {
+        font-size: 20px;
+        margin-right: 4px;
     }
 }
 
