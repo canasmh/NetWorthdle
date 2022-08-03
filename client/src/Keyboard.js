@@ -99,7 +99,7 @@ function Keyboard(props) {
             if (currentGuess.length < 3) {
                 console.log("Not enough Entries")
             } else {
-                // Still need to check the guess
+                // Check the guess
                 checkGuess(currentGuess + " " + unit)
 
                 // Add Guess to Guess list
@@ -110,7 +110,8 @@ function Keyboard(props) {
                 props.setMoneyUnit("thousand")
             }
         } else if (id === "") {
-            console.log("Unaccounted ID")
+            console.log(`Unaccounted ID: ${id}\nParent ID: ${parentId}`)
+            console.log(event.target)
 
         } else {
             if (currentGuess.length < 3) {
@@ -140,7 +141,7 @@ function Keyboard(props) {
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
                 <button className="keyboard-button" id="backspace" onClick={updateCurrentGuess}><FontAwesomeIcon icon="fa-solid fa-delete-right" /></button>                                                                  
-                <button className="keyboard-button" id="n0" onClick={updateCurrentGuess}>0</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[0]} id="n0" onClick={updateCurrentGuess}>0</button>                                                                                                  
                 <button className="keyboard-button" id="enter" onClick={updateCurrentGuess}><FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" /></button>                                                                   
             </div>                                                                                                                                                                                          
         </div>
