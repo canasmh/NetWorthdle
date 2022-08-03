@@ -22,13 +22,19 @@ function GameTiles(props) {
 
             props.setMoneyUnit(newMoneyUnit)
         }
+        var classes = ""
+        if (props.classes.length === 0) {
+            classes = "    "
+        } else {
+            classes = props.classes
+        }
 
         return (
             <Form>                                                                                                                                                                       
-                <Form.Control bsPrefix="" type="text" value={!guess ? "" : guess[0]} placeholder="" readOnly disabled={props.disable} />                                                                                                                                                                           
-                <Form.Control bsPrefix="" type="text" value={!guess ? "" : guess[1]} placeholder="" readOnly disabled={props.disable} />                                                                                                                                                                           
-                <Form.Control bsPrefix="" type="text" value={!guess ? "" : guess[2]} placeholder="" readOnly disabled={props.disable} />                                                                                                                                                                           
-                <Form.Select bsPrefix="" aria-label="Default select example" onChange={changeUnit} readOnly disabled={props.disable}>                    
+                <Form.Control bsPrefix={classes[0]} type="text" value={!guess ? "" : guess[0]} placeholder="" readOnly disabled={props.disable} />                                                                                                                                                                           
+                <Form.Control bsPrefix={classes[1]} type="text" value={!guess ? "" : guess[1]} placeholder="" readOnly disabled={props.disable} />                                                                                                                                                                           
+                <Form.Control bsPrefix={classes[2]} type="text" value={!guess ? "" : guess[2]} placeholder="" readOnly disabled={props.disable} />                                                                                                                                                                           
+                <Form.Select bsPrefix={classes[3]} aria-label="Default select example" onChange={changeUnit} readOnly disabled={props.disable}>                    
                         <option value="thousand">Thousand</option>                                                                                                                           
                         <option value="million">Million</option>                                                                                                                             
                         <option value="billion">Billion</option>                                                                                                                                 
