@@ -37,8 +37,6 @@ function Keyboard(props) {
             magnitude = "0" + magnitude;
         }
 
-        const modNetWorth = magnitude + " " + unit;
-
         for (let i=0; i < magnitude.length - 1; i++) {
             for (let j=0; j < magnitude.length; j++) {
                 var index = parseInt(guess[j]);
