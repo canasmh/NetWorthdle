@@ -1,5 +1,6 @@
 import React from "react";
-import "./Keyboard.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "./Keyboard.css";
 
 function Keyboard(props) {
 
@@ -56,9 +57,9 @@ function Keyboard(props) {
                 <button className="keyboard-button" id="n9" onClick={updateCurrentGuess}>9</button>                                                                                                  
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
-                <button className="keyboard-button" id="backspace" onClick={updateCurrentGuess}>Del</button>                                                                  
+                <button className="keyboard-button" id="backspace" onClick={updateCurrentGuess}><FontAwesomeIcon icon="fa-solid fa-delete-right" /></button>                                                                  
                 <button className="keyboard-button" id="n0" onClick={updateCurrentGuess}>0</button>                                                                                                  
-                <button className="keyboard-button" id="enter" onClick={updateCurrentGuess}>Ent</button>                                                                   
+                <button className="keyboard-button" id="enter" onClick={updateCurrentGuess}><FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" /></button>                                                                   
             </div>                                                                                                                                                                                          
         </div>
     )
