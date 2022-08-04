@@ -2,14 +2,28 @@
     background-color: #355764;
     border-radius: 15px;
     color: #FFF;
+    letter-spacing: 2px;
 }
 
 .modal-title {
     margin: 0 auto;
+    font-family: 'Roboto Slab', serif;
 }
 
 .modal-body {
     text-align: left;
+}
+
+.modal-body p {
+    margin: 24px auto;
+}
+
+.modal-body p:first-child {
+    margin-top: 12px;
+}
+
+.modal-body p:last-child {
+    margin-bottom: 12px;
 }
 
 .centered {
@@ -19,14 +33,14 @@
 .green-bg {
     background-color: #5A8F7B;
     color: #D3D3D3;
-    padding: 4px 8px;
+    padding: 6px 8px;
     font-weight: 800;
 }
 
 .yellow-bg {
     background-color: #FFEA11;
     color: #A9A9A9;
-    padding: 4px 8px;
+    padding: 6px 8px;
     font-weight: 800;
 }
 
@@ -35,4 +49,16 @@
     color: #D3D3D3;
     padding: 4px 8px;
     font-weight: 800;
+}
+
+@media only screen and (min-width: 600px) {
+    .modal-body p {
+        margin: 36px auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .modal-body p {
+        margin: 40px auto;
+    }
 }
