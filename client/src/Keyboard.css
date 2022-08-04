@@ -33,17 +33,17 @@ button.keyboard-button:hover {
 
 .correct {
     background-color: #5A8F7B!important;
-    color: #FFF!important;
+    color: #D3D3D3!important;
 }
   
 .present {
     background-color: #FFEA11!important;
-    color: #FFF!important;
+    color: #A9A9A9!important;
 }
   
 .absent {
     background-color: #373737!important;
-    color: #FFF!important;
+    color: #D3D3D3!important;
 }
 
 @media only screen and (max-width: 320px) {
