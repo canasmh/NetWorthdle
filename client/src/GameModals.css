@@ -1,0 +1,38 @@
+.modal-content {
+    background-color: #355764;
+    border-radius: 15px;
+    color: #FFF;
+}
+
+.modal-title {
+    margin: 0 auto;
+}
+
+.modal-body {
+    text-align: left;
+}
+
+.centered {
+    text-align: center;
+}
+
+.green-bg {
+    background-color: #5A8F7B;
+    color: #D3D3D3;
+    padding: 4px 8px;
+    font-weight: 800;
+}
+
+.yellow-bg {
+    background-color: #FFEA11;
+    color: #A9A9A9;
+    padding: 4px 8px;
+    font-weight: 800;
+}
+
+.gray-bg {
+    background-color: #373737;
+    color: #D3D3D3;
+    padding: 4px 8px;
+    font-weight: 800;
+}
