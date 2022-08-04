@@ -17,18 +17,18 @@ function GameHelp(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
+        <p>
             <span className="centered">Enter a 3 digit number (from <strong>001</strong> to <strong>999</strong>) and an amount (i.e., <strong>Million</strong>).</span>
-            <br />
-            <br />
+        </p>
+        <p>
             <span className="green-bg">GREEN</span> means that the number and/or amount is in the correct spot
-            <br />
-            <br />
+        </p>
+        <p>
             <span className="yellow-bg">YELLOW</span> means that that number <em>is</em> present, but is not in the correct spot.
-            <br />
-            <br />
+        </p>
+        <p>
             <span className="gray-bg">GRAY</span> means that the number and/or amount is not present.
-          </p>
+        </p>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide} variant="outline-light">Close</Button>
