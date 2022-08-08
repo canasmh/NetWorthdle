@@ -27,10 +27,10 @@ div.celeb-container a:hover {
 .green {
     color: #5A8F7B;
   }
-  
-  .gold {
+
+.gold {
     color: #FFEA11;
-  }
+}
 
 @media only screen and (max-width: 320px) {
     div.celeb-container h2 {

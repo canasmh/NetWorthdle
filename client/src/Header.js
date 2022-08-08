@@ -1,15 +1,22 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
+import GameStats from "./GameStats";
 import "./Header.css";
 
 
-function Header() {
+function Header(props) {
+    
+
+    
     return (
         <div className="header">
-            <span className="left"><FontAwesomeIcon icon="fa-solid fa-circle-info" /></span>
+            
+            
+            <span className="left"><FontAwesomeIcon icon="fa-solid fa-circle-info" onClick={() => props.showHelp(true)}/></span>
             <h1>
-                <span className="green">Net</span><span className="gold">W<FontAwesomeIcon icon="fa-solid fa-circle-dollar" />rth</span>dle</h1><span className="right"><FontAwesomeIcon icon="fa-solid fa-chart-simple" /></span>
+                <span className="green">Net</span><span className="gold">W<FontAwesomeIcon icon="fa-solid fa-circle-dollar" />rth</span>dle
+            </h1>
+            <span className="right"><FontAwesomeIcon icon="fa-solid fa-chart-simple" onClick={() => props.showStats(true)}/></span>
         </div>
     )
 }
