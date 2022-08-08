@@ -33,6 +33,7 @@ function App() {
 
   // TODO: Show stats if the game was already played that day.
   // TODO: Know which guess the user won on *if* they won... This is for the bar graph. 
+  // TODO: Store game won in local storage. Also need to reset game won for a new day.
 
   const [gameWon, setGameWon] = useState(false)
   const [gameOver, setGameOver] = useState(false)
@@ -42,6 +43,7 @@ function App() {
   function updatePlayedStatus() {
     setHelpShow(true);
     localStorage.setItem("userHasPlayed", "true");
+    localStorage.setItem("gameWon", "false");
     localStorage.setItem("gamesPlayed", "0");
     localStorage.setItem("firstGuess", "0");
     localStorage.setItem("secondGuess", "0");
