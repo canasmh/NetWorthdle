@@ -3,8 +3,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/esm/Container";
-import ProgressBar from 'react-bootstrap/ProgressBar';
 import "./GameModals.css";
 
 function GameStats(props) {
@@ -12,11 +10,11 @@ function GameStats(props) {
       <Modal
         {...props}
         size="md"
-        aria-labelledby="contained-modal-title-vcenter"
+        aria-labelledby="gameStats"
         centered
       >
         <Modal.Header>
-          <Modal.Title id="contained-modal-title-vcenter">
+          <Modal.Title id="gameStats">
             <h4 className="title">{props.name}</h4>
             <p className="net-worth"><span className="gold">Net Worth:</span> <span className="green">{props.netWorth}</span></p>
           </Modal.Title>
