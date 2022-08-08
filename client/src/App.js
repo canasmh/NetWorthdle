@@ -62,6 +62,7 @@ function App() {
   }
 
   function gameOverShowStats() {
+    localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
     setStatsShow(true);
     if (gameWon) {
       setGameWon(false);
@@ -80,7 +81,7 @@ function App() {
     }
     localStorage.setItem("lastPlayed", todaysDate())
     localStorage.setItem("guesses", guesses)
-    localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
+    
     if (!statsShow) {
       setTimeout(gameOverShowStats, 800)
     }
