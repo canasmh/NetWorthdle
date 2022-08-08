@@ -32,6 +32,7 @@ function App() {
   });
 
   const [gameWon, setGameWon] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
   const [statsShow, setStatsShow] = useState(false);
   const [helpShow, setHelpShow] = useState(false);
 
@@ -53,6 +54,10 @@ function App() {
     setTimeout(updatePlayedStatus, 800)
   }
 
+  if (guesses.length === 5) {
+    setGameOver(true)
+  }
+
   return (
     <div className="app">
       <GameStats show={statsShow} onHide={() => setStatsShow(false)} netWorth={celebData.net_worth} name={celebData.name}/>
@@ -60,7 +65,7 @@ function App() {
       <Header showStats={setStatsShow} showHelp={setHelpShow}/>
       <Celeb celebData={celebData} />
       <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit} tileClasses={tileClasses}/>
-      <Keyboard moneyUnit={moneyUnit} nGuesses={guesses.length} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} setTileClasses={setTileClasses} netWorth={celebData.net_worth} setMoneyUnit={setMoneyUnit}/>
+      <Keyboard moneyUnit={moneyUnit} nGuesses={guesses.length} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} setTileClasses={setTileClasses} netWorth={celebData.net_worth} setMoneyUnit={setMoneyUnit} won={setGameWon}/>
     </div>
   );
 }

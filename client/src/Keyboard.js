@@ -10,6 +10,10 @@ function Keyboard(props) {
         setKeyClass(keyClasses);
     }
 
+    function setWon(gameStatus) {
+        props.won(gameStatus)
+    }
+
     function updateTiles(tileClasses) {
         if (props.nGuesses === 0) {
             props.setTileClasses((oldClasses) => {return {...oldClasses, firstRow: tileClasses}});
@@ -30,6 +34,7 @@ function Keyboard(props) {
         const unit = netWorth.split(" ")[1];
         var tileClasses = [];
         var keyClasses = keyClass;
+        
 
         if (magnitude.length === 1) {
             magnitude = "00" + magnitude;
@@ -82,6 +87,14 @@ function Keyboard(props) {
 
         updateTiles(tileClasses);
         updateKeys(keyClasses);
+
+        var gameWon = true
+        for (let k=0; k < tileClasses.length; k++) {
+            if (tileClasses[k] !== "correct") {
+                gameWon = false
+            }
+        }
+        setWon(gameWon)
     }
 
     function updateCurrentGuess(event) {
