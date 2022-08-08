@@ -1,6 +1,7 @@
 import './App.css';
 import Celeb from './Celeb';
 import GameBoard from './GameBoard';
+import { todaysDate, yesterdaysDate } from './Dates';
 import Header from './Header';
 import Keyboard from './Keyboard';
 import GameStats from './GameStats';
@@ -34,6 +35,23 @@ function App() {
   const [statsShow, setStatsShow] = useState(false);
   const [helpShow, setHelpShow] = useState(false);
 
+  function updatePlayedStatus() {
+    setHelpShow(true);
+    localStorage.setItem("userHasPlayed", "true");
+    localStorage.setItem("gamesPlayed", "0")
+    localStorage.setItem("firstGuess", "0")
+    localStorage.setItem("secondGuess", "0")
+    localStorage.setItem("thirdGuess", "0")
+    localStorage.setItem("fourthGuess", "0")
+    localStorage.setItem("fifthGuess", "0")
+    localStorage.setItem("maxStreak", "0")
+    localStorage.setItem("currentStreak", "0")
+  }
+
+  if (!localStorage.userHasPlayed) {
+    // If first time playing, show game instructions
+    setTimeout(updatePlayedStatus, 800)
+  }
 
   return (
     <div className="app">
