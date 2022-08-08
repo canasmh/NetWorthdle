@@ -31,6 +31,9 @@ function App() {
     fifthRow: []
   });
 
+  // TODO: Show stats if the game was already played that day.
+  // TODO: Know which guess the user won on *if* they won... This is for the bar graph. 
+
   const [gameWon, setGameWon] = useState(false)
   const [gameOver, setGameOver] = useState(false)
   const [statsShow, setStatsShow] = useState(false);
@@ -39,14 +42,14 @@ function App() {
   function updatePlayedStatus() {
     setHelpShow(true);
     localStorage.setItem("userHasPlayed", "true");
-    localStorage.setItem("gamesPlayed", "0")
-    localStorage.setItem("firstGuess", "0")
-    localStorage.setItem("secondGuess", "0")
-    localStorage.setItem("thirdGuess", "0")
-    localStorage.setItem("fourthGuess", "0")
-    localStorage.setItem("fifthGuess", "0")
-    localStorage.setItem("maxStreak", "0")
-    localStorage.setItem("currentStreak", "0")
+    localStorage.setItem("gamesPlayed", "0");
+    localStorage.setItem("firstGuess", "0");
+    localStorage.setItem("secondGuess", "0");
+    localStorage.setItem("thirdGuess", "0");
+    localStorage.setItem("fourthGuess", "0");
+    localStorage.setItem("fifthGuess", "0");
+    localStorage.setItem("maxStreak", "0");
+    localStorage.setItem("currentStreak", "0");
   }
 
   if (!localStorage.userHasPlayed) {
@@ -56,6 +59,35 @@ function App() {
 
   if (guesses.length === 5) {
     setGameOver(true)
+  }
+
+  function gameOverShowStats() {
+    setStatsShow(true);
+    if (gameWon) {
+      setGameWon(false);
+    }
+
+    if (gameOver) {
+      setGameOver(false)
+    }
+  }
+
+  if (gameWon || gameOver) {
+    if (localStorage.lastPlayed === yesterdaysDate() && localStorage.lastPlayed !== todaysDate()) {
+      localStorage.setItem("currentStreak", String(parseInt(localStorage.currentStreak) + 1))
+    } else {
+      localStorage.setItem("currentStreak", "1")
+    }
+    localStorage.setItem("lastPlayed", todaysDate())
+    localStorage.setItem("guesses", guesses)
+    localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
+    if (!statsShow) {
+      setTimeout(gameOverShowStats, 800)
+    }
+  }
+
+  if (parseInt(localStorage.currentStreak) > parseInt(localStorage.maxStreak)) {
+    localStorage.setItem("maxStreak", localStorage.currentStreak)
   }
 
   return (
