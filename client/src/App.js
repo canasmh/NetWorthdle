@@ -37,8 +37,8 @@ function App() {
 
   return (
     <div className="app">
-      <GameStats show={statsShow} onHide={() => setStatsShow(false)} />
-      <GameHelp show={helpShow} onHide={() => setHelpShow(false)} />
+      <GameStats show={statsShow} onHide={() => setStatsShow(false)} netWorth={celebData.net_worth} name={celebData.name}/>
+      <GameHelp show={helpShow} onHide={() => setHelpShow(false)}  />
       <Header showStats={setStatsShow} showHelp={setHelpShow}/>
       <Celeb celebData={celebData} />
       <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit} tileClasses={tileClasses}/>
