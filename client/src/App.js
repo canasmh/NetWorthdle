@@ -39,6 +39,7 @@ function App() {
   const [gameOver, setGameOver] = useState(false)
   const [statsShow, setStatsShow] = useState(false);
   const [helpShow, setHelpShow] = useState(false);
+  const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
 
   function updatePlayedStatus() {
     setHelpShow(true);
@@ -59,35 +60,66 @@ function App() {
     setTimeout(updatePlayedStatus, 800)
   }
 
-  if (guesses.length === 5) {
-    setGameOver(true)
+  function setGameWonFalse() {
+    setGameWon(false)
+  }
+
+  function setGuessesNone() {
+    setGuesses([])
+  }
+
+  if (gameWon) {
+    if (localStorage.lastPlayed === yesterdaysDate()) {
+      localStorage.setItem("currentStreak", String(parseInt(localStorage.currentStreak) + 1));
+    } else {
+      localStorage.setItem("currentStreak", "1");
+    }
+
+    localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
+    localStorage.setItem("lastPlayed", todaysDate());
+    localStorage.setItem("guesses", guesses)
+    setGameWonFalse();
+
+  } else if (guesses.length === 5) {
+
+    if (localStorage.lastPlayed === yesterdaysDate()) {
+      localStorage.setItem("currentStreak", String(parseInt(localStorage.currentStreak) + 1));
+    } else {
+      localStorage.setItem("currentStreak", "1");
+    }
+
+    localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
+    localStorage.setItem("lastPlayed", todaysDate());
+    localStorage.setItem("guesses", guesses)
+    setGuessesNone();
+
   }
 
   function gameOverShowStats() {
-    localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
-    setStatsShow(true);
-    if (gameWon) {
-      setGameWon(false);
-    }
-
-    if (gameOver) {
-      setGameOver(false)
-    }
-  }
-
-  if (gameWon || gameOver) {
-    if (localStorage.lastPlayed === yesterdaysDate() && localStorage.lastPlayed !== todaysDate()) {
-      localStorage.setItem("currentStreak", String(parseInt(localStorage.currentStreak) + 1))
-    } else {
-      localStorage.setItem("currentStreak", "1")
-    }
-    localStorage.setItem("lastPlayed", todaysDate())
-    localStorage.setItem("guesses", guesses)
     
-    if (!statsShow) {
-      setTimeout(gameOverShowStats, 800)
-    }
+    setStatsShow(true);
+    setAlreadyShowedStats(true);
   }
+
+
+  if (!alreadyShowedStats && localStorage.lastPlayed === todaysDate()) {
+    setTimeout(gameOverShowStats, 800)
+  }
+
+  // if (gameWon || gameOver) {
+  //   console.log("Trueeee")
+  //   if (localStorage.lastPlayed === yesterdaysDate() && localStorage.lastPlayed !== todaysDate()) {
+  //     
+  //   } else {
+  //     localStorage.setItem("currentStreak", "1")
+  //   }
+  //   localStorage.setItem("lastPlayed", todaysDate())
+  //   localStorage.setItem("guesses", guesses)
+    
+  //   if (!statsShow) {
+  //     setTimeout(gameOverShowStats, 800)
+  //   }
+  // }
 
   if (parseInt(localStorage.currentStreak) > parseInt(localStorage.maxStreak)) {
     localStorage.setItem("maxStreak", localStorage.currentStreak)
