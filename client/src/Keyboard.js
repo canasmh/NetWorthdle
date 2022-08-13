@@ -1,8 +1,19 @@
 import React from "react";
+import { todaysDate } from './Dates';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./Keyboard.css";
 
 function Keyboard(props) {
+
+    var gamePlayed;
+
+    if (localStorage.lastPlayed === todaysDate()) {
+        gamePlayed = true;
+    } else {
+        gamePlayed = false;
+    }
+
+    console.log(gamePlayed)
 
     const [keyClass, setKeyClass] = React.useState(["", "", "", "", "", "", "", "", "", ""]);
 
@@ -140,24 +151,24 @@ function Keyboard(props) {
     return (
         <div className="keyboard">                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                  
-                <button className={"keyboard-button " + keyClass[1]} id="n1" onClick={updateCurrentGuess}>1</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[2]} id="n2" onClick={updateCurrentGuess}>2</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[3]} id="n3" onClick={updateCurrentGuess}>3</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[1]} id="n1" onClick={!gamePlayed ? updateCurrentGuess : null}>1</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[2]} id="n2" onClick={!gamePlayed ? updateCurrentGuess : null}>2</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[3]} id="n3" onClick={!gamePlayed ? updateCurrentGuess : null}>3</button>                                                                                                  
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
-                <button className={"keyboard-button " + keyClass[4]} id="n4" onClick={updateCurrentGuess}>4</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[5]} id="n5" onClick={updateCurrentGuess}>5</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[6]} id="n6" onClick={updateCurrentGuess}>6</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[4]} id="n4" onClick={!gamePlayed ? updateCurrentGuess : null}>4</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[5]} id="n5" onClick={!gamePlayed ? updateCurrentGuess : null}>5</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[6]} id="n6" onClick={!gamePlayed ? updateCurrentGuess : null}>6</button>                                                                                                  
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
-                <button className={"keyboard-button " + keyClass[7]} id="n7" onClick={updateCurrentGuess}>7</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[8]} id="n8" onClick={updateCurrentGuess}>8</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[9]} id="n9" onClick={updateCurrentGuess}>9</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[7]} id="n7" onClick={!gamePlayed ? updateCurrentGuess : null}>7</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[8]} id="n8" onClick={!gamePlayed ? updateCurrentGuess : null}>8</button>                                                                                                  
+                <button className={"keyboard-button " + keyClass[9]} id="n9" onClick={!gamePlayed ? updateCurrentGuess : null}>9</button>                                                                                                  
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
-                <button className="keyboard-button" id="backspace" onClick={updateCurrentGuess}><FontAwesomeIcon icon="fa-solid fa-delete-right" /></button>                                                                  
-                <button className={"keyboard-button " + keyClass[0]} id="n0" onClick={updateCurrentGuess}>0</button>                                                                                                  
-                <button className="keyboard-button" id="enter" onClick={updateCurrentGuess}><FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" /></button>                                                                   
+                <button className="keyboard-button" id="backspace" onClick={!gamePlayed ? updateCurrentGuess : null}><FontAwesomeIcon icon="fa-solid fa-delete-right" /></button>                                                                  
+                <button className={"keyboard-button " + keyClass[0]} id="n0" onClick={!gamePlayed ? updateCurrentGuess : null}>0</button>                                                                                                  
+                <button className="keyboard-button" id="enter" onClick={!gamePlayed ? updateCurrentGuess : null}><FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" /></button>                                                                   
             </div>                                                                                                                                                                                          
         </div>
     )
