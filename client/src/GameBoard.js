@@ -4,14 +4,15 @@ import { todaysDate } from "./Dates";
 
 function GameBoard(props) {
 
+    var guesses;
     if (localStorage.guesses) {
         if (localStorage.guesses.length === 0) {
-            var guesses = props.guesses
+            guesses = props.guesses
         } else {
-            var guesses = localStorage.guesses.split(",")
+            guesses = localStorage.guesses.split(",")
         }
     } else {
-        var guesses = props.guesses
+        guesses = props.guesses
     }
     // const guesses = localStorage.guesses.length === 0 ? props.guesses : localStorage.guesses.split(",");
     const currentGuess = props.currentGuess;
