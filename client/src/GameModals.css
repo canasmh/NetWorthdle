@@ -102,12 +102,14 @@ div.stats-graph {
     margin-top: 2px!important;
     margin-bottom: 2px!important;
     font-size: 20px!important;
+    width: 15px!important;
     display: inline-block;
 }
 
 .stats-graph div {
-    text-align: center;
+    text-align: right;
     font-size: 12px;
+    padding-right: 8px;
 }
 
 .middle-col {
@@ -117,7 +119,8 @@ div.stats-graph {
 
 .stats-bar {
     display: inline-block;
-    width: 280px;
+    /* width: 85%; */
+    /* width: 280px; */
     height: 20px!important;
     background-color: #373737;
     /* border-radius: 15px; */
