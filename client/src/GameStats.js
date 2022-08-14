@@ -35,10 +35,6 @@ function GameStats(props) {
 
   }
 
-  console.log(barWidths)
-
-  
-
   return (
 
     
