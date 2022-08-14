@@ -1,0 +1,11 @@
+{
+  "name": "networthdle",
+  "version": "1.0.0",
+  "description": "A wordle-style game where one must guess the net worth of a celebrity",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel H. Canas",
+  "license": "ISC"
+}
