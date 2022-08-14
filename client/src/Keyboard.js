@@ -13,8 +13,6 @@ function Keyboard(props) {
         gamePlayed = false;
     }
 
-    console.log(gamePlayed)
-
     const [keyClass, setKeyClass] = React.useState(["", "", "", "", "", "", "", "", "", ""]);
 
     function updateKeys(keyClasses) {
@@ -22,7 +20,7 @@ function Keyboard(props) {
     }
 
     function setWon(gameStatus) {
-        props.won(gameStatus)
+        props.won(gameStatus);
     }
 
     function updateTiles(tileClasses) {
@@ -138,6 +136,8 @@ function Keyboard(props) {
         } else if (id === "") {
             console.log(`Unaccounted ID: ${id}\nParent ID: ${parentId}`)
             console.log(event.target)
+            console.log(typeof event.target)
+            console.log(<FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" />)
 
         } else {
             if (currentGuess.length < 3) {
