@@ -62,7 +62,7 @@ h4.title {
 }
 
 h5.title {
-    font-size: 1.2rem;
+    font-size: 20px;
     margin: 10px auto;
     font-weight: 300;
     text-align: center;
@@ -76,6 +76,7 @@ p.net-worth {
 p.stats-info {
     text-align: center;
     margin: 10px auto;
+    font-size: 16px;
 }
 
 p.net-worth .green {
@@ -88,10 +89,6 @@ p.net-worth .green {
     background-color: #5A8F7B!important;
 }
 
-.stats-info {
-    font-size: 24px;
-}
-
 div.stats-graph {
     padding: 15px auto;
     margin: 15px auto;
@@ -102,12 +99,14 @@ div.stats-graph {
     margin-top: 2px!important;
     margin-bottom: 2px!important;
     font-size: 20px!important;
+    width: 15px!important;
     display: inline-block;
 }
 
 .stats-graph div {
-    text-align: center;
+    text-align: right;
     font-size: 12px;
+    padding-right: 8px;
 }
 
 .middle-col {
@@ -117,7 +116,8 @@ div.stats-graph {
 
 .stats-bar {
     display: inline-block;
-    width: 280px;
+    /* width: 85%; */
+    /* width: 280px; */
     height: 20px!important;
     background-color: #373737;
     /* border-radius: 15px; */
