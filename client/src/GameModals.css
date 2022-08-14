@@ -62,7 +62,7 @@ h4.title {
 }
 
 h5.title {
-    font-size: 1.2rem;
+    font-size: 20px;
     margin: 10px auto;
     font-weight: 300;
     text-align: center;
@@ -76,6 +76,7 @@ p.net-worth {
 p.stats-info {
     text-align: center;
     margin: 10px auto;
+    font-size: 16px;
 }
 
 p.net-worth .green {
@@ -86,10 +87,6 @@ p.net-worth .green {
 
 .correct-bar {
     background-color: #5A8F7B!important;
-}
-
-.stats-info {
-    font-size: 24px;
 }
 
 div.stats-graph {
