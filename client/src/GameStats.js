@@ -89,7 +89,7 @@ function GameStats(props) {
           <br/>
           <p>4</p><div className="stats-bar" style={{width: barWidths[3] + "%", backgroundColor: localStorage.guesses && localStorage.guesses.split(",").length === 4 ? "#5A8F7B" : "#373737"}}>{localStorage.wonOnFourth !== "0" ? localStorage.wonOnFourth : ""}</div>
           <br/>
-          <p>5</p><div className="stats-bar" style={{width: barWidths[4] + "%", backgroundColor: localStorage.guesses && localStorage.guesses.split(",").length === 5 ? "#5A8F7B" : "#373737"}}>{localStorage.wonOnFifth !== "0" ? localStorage.wonOnFifth : ""}</div>
+          <p>5</p><div className="stats-bar" style={{width: barWidths[4] + "%", backgroundColor: localStorage.guesses && localStorage.guesses.split(",").length === 5 && localStorage.gameWon === "true" ? "#5A8F7B" : "#373737"}}>{localStorage.wonOnFifth !== "0" ? localStorage.wonOnFifth : ""}</div>
           
         </div>
       </Modal.Body>
