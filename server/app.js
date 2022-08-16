@@ -106,22 +106,30 @@ async function getNewCeleb() {
     var currentCeleb;
     var iCeleb;
     var celebPlayed;
+    var playedToday
 
     while (!newCelebFound) {
         iCeleb = Math.floor(Math.random() * nCelebs);
         currentCeleb = celebs[iCeleb];
         celebPlayed = await getCelebPlayed(currentCeleb.name);
-        if (!celebPlayed) {
+        playedToday = await checkForNewDate()
+        if (!playedToday) {
+            if (!celebPlayed) {
+                newCelebFound = true;
+                newCeleb = currentCeleb;
+                const newPlayedCeleb = new playedCeleb({name: currentCeleb.name});
+                newPlayedCeleb.save(function(err) {
+                    if (err) {
+                        console.log(`Error saving celeb: ${err}`)
+                    } else {
+                        console.log(`${newPlayedCeleb} add to database`);
+                    }
+                });
+        } else {
             newCelebFound = true;
-            newCeleb = currentCeleb;
-            const newPlayedCeleb = new playedCeleb({name: currentCeleb.name});
-            newPlayedCeleb.save(function(err) {
-                if (err) {
-                    console.log(`Error saving celeb: ${err}`)
-                } else {
-                    console.log(`${newPlayedCeleb} add to database`);
-                }
-            });
+            newCeleb = await getCelebData(playedCeleb.name)
+        }
+        
         }                   
     }
     return newCeleb;

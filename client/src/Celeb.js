@@ -11,7 +11,6 @@ function Celeb(props) {
 
     var occupation = "";
     var query;
-    console.log(name)
     if (name !== "Loading...") {
         query = "http://google.com/search?q=" + name.split(' ').join('+')
     }
