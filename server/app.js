@@ -135,10 +135,10 @@ app.get("/get-celeb-data", async function(req, res) {
     if (!celebPlayedToday) {
         newCelebrity = await getNewCeleb();
     } else {
-        newCelebrity = await getCelebData(celebPlayedToday.name)
+        newCelebrity = await getCelebData(celebPlayedToday.name);
     }
 
-    res.json(newCelebrity);
+    res.json(newCelebrity[0]);
 
 })
 
