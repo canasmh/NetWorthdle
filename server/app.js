@@ -80,6 +80,60 @@ const celebPlayedSchema = new mongoose.Schema({
 const Celeb = new mongoose.model("celeb", celebSchema);
 const celebPlayed = new mongoose.model("PlayedCeleb", celebPlayedSchema);
 
+function getAllCelebs() {
+    return Celeb.find({}).exec();
+};
+
+function getCelebPlayed(celebName) {
+    return celebPlayed.findOne({name: celebName}).exec();
+}
+
+function getCelebData(celebName) {
+    return Celeb.find({name: celebName}).exec();
+}
+
+function checkForNewDate() {
+    const today = todaysDate();
+    return celebPlayed.findOne({date: today}).exec();
+}
+
+async function getNewCeleb() {
+    const celebs = await getAllCelebs();
+    var nCelebs = celebs.length;
+    var newCelebFound = false;
+    
+    var newCeleb = null;
+    var currentCeleb;
+    var iCeleb;
+    var celebPlayed;
+
+    while (!newCelebFound) {
+        iCeleb = Math.floor(Math.random() * nCelebs);
+        currentCeleb = celebs[iCeleb];
+        celebPlayed = await getCelebPlayed(currentCeleb.name);
+        if (!celebPlayed) {
+            newCelebFound = true;
+            newCeleb = currentCeleb;
+            const newPlayedCeleb = new celebPlayed({name: currentCeleb.name});
+            newPlayedCeleb.save(function(err) {
+                if (err) {
+                    console.log(`Error saving celeb: ${err}`)
+                } else {
+                    console.log(`${newPlayedCeleb} add to database`);
+                }
+            });
+        }
+        console.log(`Current Celeb: ${currentCeleb.name}`);  
+        newCeleb = currentCeleb;   
+        newCelebFound = true;
+                                                    
+    }
+
+    return newCeleb;
+}
+
+
+
 app.get('*', function (req, res) {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
