@@ -12,11 +12,13 @@ class CelebrityScraper:
     """
 
     def __init__(self):
+        print("Installing Driver...")
         service = Service(ChromeDriverManager().install())
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--headless")
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
         self.url = "https://www.thefamouspeople.com/21st-century.php"
+        print("Getting URL...")
         self.driver.get(url=self.url)
         self.content_loaded = False
         self.celebrities_name = None
@@ -31,11 +33,13 @@ class CelebrityScraper:
             sleep_time (float): Time (in seconds) between each key send.
 
         """
-
         html_body = self.driver.find_element(By.TAG_NAME, "body")
-
+        it = 0 
         for i in range(n_scrolls):
             html_body.send_keys(Keys.PAGE_DOWN)
+            if i == it:
+                print(f"{i} scrolls out of {n_scrolls}")
+                it += round(n_scrolls / 10)
             sleep(sleep_time)
 
         self.content_loaded = True
