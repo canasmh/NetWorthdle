@@ -64,15 +64,6 @@ function todaysDate() {
     return convertDate(today)
 }
 
-function yesterdaysDate() {
-    const today = new Date()
-    const yesterday = new Date(today)
-
-    yesterday.setDate(yesterday.getDate() - 1)
-    
-    return convertDate(yesterday)
-}
-
 const celebSchema = new mongoose.Schema({
     name: {type: String, required: true},
     net_worth: {type: String, required: true},
