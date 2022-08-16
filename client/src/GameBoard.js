@@ -25,7 +25,6 @@ function GameBoard(props) {
             <GameTiles guess={guesses.length > 1 ? guesses[1] : null} currentGuess={guesses.length === 1 ? currentGuess : null} setMoneyUnit={props.setMoneyUnit} disable={guesses.length > 1 || gameOver ? true : false} classes={props.tileClasses.secondRow} />
             <GameTiles guess={guesses.length > 2 ? guesses[2] : null} currentGuess={guesses.length === 2 ? currentGuess : null} setMoneyUnit={props.setMoneyUnit} disable={guesses.length > 2 || gameOver ? true : false} classes={props.tileClasses.thirdRow} />
             <GameTiles guess={guesses.length > 3 ? guesses[3] : null} currentGuess={guesses.length === 3 ? currentGuess : null} setMoneyUnit={props.setMoneyUnit} disable={guesses.length > 3 || gameOver ? true : false} classes={props.tileClasses.fourthRow} />
-            <GameTiles guess={guesses.length > 4 ? guesses[4] : null} currentGuess={guesses.length === 4 ? currentGuess : null} setMoneyUnit={props.setMoneyUnit} disable={guesses.length > 4 || gameOver ? true : false} classes={props.tileClasses.fifthRow} />
         </div>
     )
 }

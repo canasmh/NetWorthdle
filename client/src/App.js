@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [celebData, setCelebData] = useState(null)
+  const [celebData, setCelebData] = useState(null);
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [moneyUnit, setMoneyUnit] = useState("thousand");
@@ -26,8 +26,7 @@ function App() {
     firstRow: [],
     secondRow: [],
     thirdRow: [],
-    fourthRow: [],
-    fifthRow: []
+    fourthRow: []
   });
 
   React.useEffect(() => {
@@ -48,13 +47,11 @@ function App() {
     localStorage.setItem("secondGuess", "");
     localStorage.setItem("thirdGuess", "");
     localStorage.setItem("fourthGuess", "");
-    localStorage.setItem("fifthGuess", "");
     localStorage.setItem("guesses", "");
-    localStorage.setItem("wonOnFirst", "0")
-    localStorage.setItem("wonOnSecond", "0")
-    localStorage.setItem("wonOnThird", "0")
-    localStorage.setItem("wonOnFourth", "0")
-    localStorage.setItem("wonOnFifth", "0")
+    localStorage.setItem("wonOnFirst", "0");
+    localStorage.setItem("wonOnSecond", "0");
+    localStorage.setItem("wonOnThird", "0");
+    localStorage.setItem("wonOnFourth", "0");
   }
 
   if (!gamePlayChecked) {
@@ -67,7 +64,6 @@ function App() {
       localStorage.setItem("secondGuess", "");
       localStorage.setItem("thirdGuess", "");
       localStorage.setItem("fourthGuess", "");
-      localStorage.setItem("fifthGuess", "");
       localStorage.setItem("guesses", "");
     } else {
   
@@ -75,16 +71,11 @@ function App() {
         firstRow: localStorage.firstGuess.length !== 0 ? localStorage.firstGuess.split(",") : [],
         secondRow: localStorage.secondGuess.length !== 0 ? localStorage.secondGuess.split(",")  : [],
         thirdRow: localStorage.thirdGuess.length !== 0 ? localStorage.thirdGuess.split(",")  : [],
-        fourthRow: localStorage.fourthGuess.length !== 0 ? localStorage.fourthGuess.split(",")  : [],
-        fifthRow: localStorage.fifthGuess.length !== 0 ? localStorage.fifthGuess.split(",")  : []
+        fourthRow: localStorage.fourthGuess.length !== 0 ? localStorage.fourthGuess.split(",")  : []
       });
-
       setGuesses(localStorage.guesses.split(","))
-
     setGamePlayChecked(true);
-  }
-
-  
+    }
   }
 
   function setGameWonFalse() {
@@ -106,7 +97,6 @@ function App() {
     localStorage.setItem("secondGuess", tileClasses.secondRow);
     localStorage.setItem("thirdGuess", tileClasses.thirdRow);
     localStorage.setItem("fourthGuess", tileClasses.fourthRow);
-    localStorage.setItem("fifthGuess", tileClasses.fifthRow);
 
     localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
     localStorage.setItem("lastPlayed", todaysDate());
@@ -121,12 +111,10 @@ function App() {
       localStorage.setItem("wonOnThird", parseInt(localStorage.wonOnThird) + 1)
     } else if (guesses.length === 4) {
       localStorage.setItem("wonOnFourth", parseInt(localStorage.wonOnFourth) + 1)
-    } else if (guesses.length === 5) {
-      localStorage.setItem("wonOnFifth", parseInt(localStorage.wonOnFifth) + 1)
-    }
+    } 
     setGameWonFalse();
 
-  } else if (guesses.length === 5 && localStorage.lastPlayed !== todaysDate()) {
+  } else if (guesses.length === 4 && localStorage.lastPlayed !== todaysDate()) {
 
     if (localStorage.lastPlayed === yesterdaysDate()) {
       localStorage.setItem("currentStreak", String(parseInt(localStorage.currentStreak) + 1));
@@ -138,13 +126,11 @@ function App() {
     localStorage.setItem("secondGuess", tileClasses.secondRow);
     localStorage.setItem("thirdGuess", tileClasses.thirdRow);
     localStorage.setItem("fourthGuess", tileClasses.fourthRow);
-    localStorage.setItem("fifthGuess", tileClasses.fifthRow);
 
     localStorage.setItem("gamesPlayed", String(parseInt(localStorage.gamesPlayed) + 1))
     localStorage.setItem("lastPlayed", todaysDate());
     localStorage.setItem("guesses", guesses)
     setGuessesNone();
-
   }
 
   function gameOverShowStats() {
