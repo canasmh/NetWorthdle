@@ -78,14 +78,14 @@ const celebPlayedSchema = new mongoose.Schema({
 });
 
 const Celeb = new mongoose.model("celeb", celebSchema);
-const celebPlayed = new mongoose.model("PlayedCeleb", celebPlayedSchema);
+const playedCeleb = new mongoose.model("PlayedCeleb", celebPlayedSchema);
 
 function getAllCelebs() {
     return Celeb.find({}).exec();
 };
 
 function getCelebPlayed(celebName) {
-    return celebPlayed.findOne({name: celebName}).exec();
+    return playedCeleb.findOne({name: celebName}).exec();
 }
 
 function getCelebData(celebName) {
@@ -94,7 +94,7 @@ function getCelebData(celebName) {
 
 function checkForNewDate() {
     const today = todaysDate();
-    return celebPlayed.findOne({date: today}).exec();
+    return playedCeleb.findOne({date: today}).exec();
 }
 
 async function getNewCeleb() {
@@ -114,7 +114,7 @@ async function getNewCeleb() {
         if (!celebPlayed) {
             newCelebFound = true;
             newCeleb = currentCeleb;
-            const newPlayedCeleb = new celebPlayed({name: currentCeleb.name});
+            const newPlayedCeleb = new playedCeleb({name: currentCeleb.name});
             newPlayedCeleb.save(function(err) {
                 if (err) {
                     console.log(`Error saving celeb: ${err}`)
@@ -122,16 +122,25 @@ async function getNewCeleb() {
                     console.log(`${newPlayedCeleb} add to database`);
                 }
             });
-        }
-        console.log(`Current Celeb: ${currentCeleb.name}`);  
-        newCeleb = currentCeleb;   
-        newCelebFound = true;
-                                                    
+        }                   
     }
-
     return newCeleb;
 }
 
+app.get("/get-celeb-data", async function(req, res) {
+
+    var celebPlayedToday = await checkForNewDate();
+    var newCelebrity;
+
+    if (!celebPlayedToday) {
+        newCelebrity = await getNewCeleb();
+    } else {
+        newCelebrity = await getCelebData(celebPlayedToday.name)
+    }
+
+    res.json(newCelebrity);
+
+})
 
 
 app.get('*', function (req, res) {
