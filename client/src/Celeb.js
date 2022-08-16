@@ -6,11 +6,16 @@ import "./Celeb.css"
 
 function Celeb(props) {
 
-    const occ = props.celebData.occupation;
-    const name = props.celebData.name;
+    const occ = props.occupation;
+    const name = props.name;
 
     var occupation = "";
-    const query = "http://google.com/search?q=" + name.split(' ').join('+')
+    var query;
+    console.log(name)
+    if (name !== "Loading...") {
+        query = "http://google.com/search?q=" + name.split(' ').join('+')
+    }
+    
 
     for (let i = 0; i < occ.length; i++) {
         if (occ[i]) {
@@ -28,11 +33,11 @@ function Celeb(props) {
             <p><strong>Occupation: </strong>{occupation}</p>
             <Container>
                 <Row>
-                    <Col xsm={12}><p><strong>Google Search:</strong> <a href={query} target="_blank" rel="noreferrer">Manuel Canas</a></p></Col>
+                    <Col xsm={12}><p><strong>Google Search:</strong> <a href={query} target="_blank" rel="noreferrer">{name}</a></p></Col>
                 </Row>
                 <Row>
-                    <Col xsm={6}><p><strong>Birthday: </strong>{props.celebData.birthday}</p></Col>
-                    <Col xsm={6}><p><strong>Nationality: </strong>{props.celebData.nationality}</p></Col>
+                    <Col xsm={6}><p><strong>Birthday: </strong>{props.birthday}</p></Col>
+                    <Col xsm={6}><p><strong>Nationality: </strong>{props.nationality}</p></Col>
                 </Row>
             </Container>
         </div>

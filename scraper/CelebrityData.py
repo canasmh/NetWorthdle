@@ -128,10 +128,10 @@ class CelebDB:
                 result = self.db.celebs.insert_one(celeb)
                 print(f"Successfully added {celeb_name} to database")
             else:
-                print(f"Unable to add {celeb_name} to database")
+                print(f"Data unavailable for {celeb_name}")
 
         else:
-            print(f"Unable to add {celeb_name} to database")
+            print(f"Data unavailable for {celeb_name}")
 
 
 def data_present(res):
