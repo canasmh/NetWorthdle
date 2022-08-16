@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Celeb from './Celeb';
 import GameBoard from './GameBoard';
@@ -12,17 +13,15 @@ import { useState } from 'react';
 
 function App() {
 
-  const [celebData, setCelebData] = useState({
-    name: "Manuel Hernando Canas",
-    occupation: ["developer", "astrophysicist", "music listener"],
-    net_worth: "325 million",
-    birthday: "June 26, 1996",
-    nationality: "Colombia"
-  })
-
+  const [celebData, setCelebData] = useState(null)
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [moneyUnit, setMoneyUnit] = useState("thousand");
+  const [gameWon, setGameWon] = useState(false);
+  const [statsShow, setStatsShow] = useState(false);
+  const [helpShow, setHelpShow] = useState(false);
+  const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
+  const [gamePlayChecked, setGamePlayChecked] = useState(false);
   const [tileClasses, setTileClasses] = useState({
     firstRow: [],
     secondRow: [],
@@ -31,15 +30,12 @@ function App() {
     fifthRow: []
   });
 
-  // TODO: Show stats if the game was already played that day.
-  // TODO: Know which guess the user won on *if* they won... This is for the bar graph. 
-  // TODO: Store game won in local storage. Also need to reset game won for a new day.
+  React.useEffect(() => {
+    fetch("/get-celeb-data")
+      .then((res) => res.json())
+      .then((data) => setCelebData(data));
+  }, []);
 
-  const [gameWon, setGameWon] = useState(false);
-  const [statsShow, setStatsShow] = useState(false);
-  const [helpShow, setHelpShow] = useState(false);
-  const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
-  const [gamePlayChecked, setGamePlayChecked] = useState(false);
 
   function updatePlayedStatus() {
     setHelpShow(true);
@@ -167,12 +163,12 @@ function App() {
 
   return (
     <div className="app">
-      <GameStats show={statsShow} onHide={() => setStatsShow(false)} netWorth={celebData.net_worth} name={celebData.name}/>
+      <GameStats show={statsShow} onHide={() => setStatsShow(false)} netWorth={!celebData ? "Loading..." : celebData.net_worth} name={!celebData ? "Loading..." : celebData.name}/>
       <GameHelp show={helpShow} onHide={() => setHelpShow(false)}  />
       <Header showStats={setStatsShow} showHelp={setHelpShow}/>
-      <Celeb celebData={celebData} />
+      <Celeb name={!celebData ? "Loading..." : celebData.name} birthday={!celebData ? "Loading..." : celebData.birthday} occupation={!celebData ? "Loading..." : celebData.occupation} nationality={!celebData ? "Loading..." : celebData.nationality}/>
       <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit} tileClasses={tileClasses}/>
-      <Keyboard moneyUnit={moneyUnit} nGuesses={guesses.length} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} setTileClasses={setTileClasses} netWorth={celebData.net_worth} setMoneyUnit={setMoneyUnit} won={setGameWon}/>
+      <Keyboard moneyUnit={moneyUnit} nGuesses={guesses.length} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} setTileClasses={setTileClasses} netWorth={!celebData ? "Loading..." : celebData.net_worth} setMoneyUnit={setMoneyUnit} won={setGameWon}/>
     </div>
   );
 }

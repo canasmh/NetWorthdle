@@ -1,12 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import GameStats from "./GameStats";
 import "./Header.css";
 
-
 function Header(props) {
-    
-
     
     return (
         <div className="header">
