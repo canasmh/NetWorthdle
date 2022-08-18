@@ -122,7 +122,7 @@ async function getNewCeleb() {
                     if (err) {
                         console.log(`Error saving celeb: ${err}`)
                     } else {
-                        console.log(`${newPlayedCeleb} add to database`);
+                        console.log(`${newPlayedCeleb.name} added to database on ${newPlayedCeleb.date}`);
                     }
                 });
         } else {
