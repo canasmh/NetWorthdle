@@ -3,11 +3,10 @@
 }
 
 .form-control:disabled, select:disabled, input:disabled {
-    background-color: #e9ecef;
+    background-color: rgba(233, 236, 239, 1);
 }
 
 input:disabled, select:disabled {
-    color: #FFF;
     margin: 5px 0;
 }
 
@@ -50,17 +49,17 @@ select {
 }
 
 .correct {
-    background-color: #5A8F7B!important;
+    background-color: rgba(90, 143, 123, 1)!important;
     color: #FFF!important;
 }
   
 .present {
-    background-color: #FFEA11!important;
+    background-color: rgba(255, 234, 17, 1)!important;
     color: #FFF!important;
 }
   
 .absent {
-    background-color: #373737!important;
+    background-color: rgba(55, 55, 55, 1)!important;
     color: #FFF!important;
 }
 
