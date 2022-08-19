@@ -8,9 +8,9 @@ import requests
 
 class CelebDB:
     """This class uploads celebrities to a MongoDB."""
-
-    def __init__(self, port=27017):
-        self.client = MongoClient(port=port)
+    def __init__(self):
+        load_dotenv()
+        self.client = MongoClient(f"mongodb+srv://canasmh:{os.environ.get('MDB_ATLAS_AUTH')}@networthdle.xbjpss2.mongodb.net/?retryWrites=true&w=majority")
         self.db = self.client.Celebrities
         self.celeb_params = ["net_worth", "nationality", "occupation", "birthday"]
 

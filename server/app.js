@@ -1,8 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const port = process.env.PORT || 3001;
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost:27017/Celebrities';
+const mongoURI = 'mongodb+srv://canasmh:' + process.env.MDB_ATLAS_AUTH + '@networthdle.xbjpss2.mongodb.net/Celebrities';
 
 const app = express();
 app.use(express.static(path.resolve(__dirname, '../client/build')));
