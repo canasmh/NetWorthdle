@@ -174,3 +174,30 @@ def get_celeb_data(celeb_name):
 
     else:
         return response.json()[0]
+
+
+if __name__ == "__main__":
+    from datetime import datetime, timedelta
+    from random import random
+    from math import floor
+
+    celeb = CelebDB()
+    celebs = list(celeb.db.celebs.find())
+    n_celebs = len(celebs)
+
+    # Will add all celebs to a new collection called playedcelebs.
+    # This list will be used to ensure no celebs are repeated, and all celebs are played
+    i_celeb_used = []
+
+    today = datetime.now()
+    while len(i_celeb_used) < n_celebs:
+        i_celeb = floor(random() * n_celebs)
+
+        if i_celeb not in i_celeb_used:
+            result = celeb.db.playedcelebs.insert_one({'name': celebs[i_celeb]['name'],
+                                                       'date': today.strftime('%B %d, %Y')
+                                                       })
+            i_celeb_used.append(i_celeb)
+            today += timedelta(1)
+            print(f"{celebs[i_celeb]['name']} added on {today.strftime('%B %d, %Y')}")
+
