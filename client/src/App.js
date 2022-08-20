@@ -30,7 +30,7 @@ function App() {
   });
 
   React.useEffect(() => {
-    fetch("/get-celeb-data")
+    fetch("/get-celeb-data/" + todaysDate())
       .then((res) => res.json())
       .then((data) => setCelebData(data));
   }, []);

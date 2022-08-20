@@ -10,60 +10,60 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 mongoose.connect(mongoURI);
 
 // Functions to convert Date
-function convertDate(dateObj) {
-    const dd = String(dateObj.getDate()).padStart(2, '0')
-    const yyyy = String(dateObj.getFullYear())
-    var mm = ''
-
-    switch (dateObj.getMonth().toString()) {
-        case '0':
-            mm = "January";
-            break;
-        case '1':
-            mm = "February";
-            break;
-        case '2':
-            mm = "March";
-            break;
-        case '3':
-            mm = "April";
-            break;
-        case '4':
-            mm = "May";
-            break;
-        case '5':
-            mm = "June";
-            break;
-        case '6':
-            mm = "July";
-            break;
-        case '7':
-            mm = "August";
-            break;
-        case '8':
-            mm = "September";
-            break;
-        case '9':
-            mm = "October";
-            break;
-        case '10':
-            mm = "November";
-            break;
-        case '11':
-            mm = "December";
-            break;
-        default:
-            mm = null;
-            console.log(`Month ${dateObj.getMonth().toString()} not accounted for`);
-    }
-
-    return mm + " " + dd + ", " + yyyy
-}
-
-function todaysDate() {
-    const today = new Date()
-    return convertDate(today)
-}
+//function convertDate(dateObj) {
+//    const dd = String(dateObj.getDate()).padStart(2, '0')
+//    const yyyy = String(dateObj.getFullYear())
+//    var mm = ''
+//
+//    switch (dateObj.getMonth().toString()) {
+//        case '0':
+//            mm = "January";
+//            break;
+//        case '1':
+//            mm = "February";
+//            break;
+//        case '2':
+//            mm = "March";
+//            break;
+//        case '3':
+//            mm = "April";
+//            break;
+//        case '4':
+//            mm = "May";
+//            break;
+//        case '5':
+//            mm = "June";
+//            break;
+//        case '6':
+//            mm = "July";
+//            break;
+//        case '7':
+//            mm = "August";
+//            break;
+//        case '8':
+//            mm = "September";
+//            break;
+//        case '9':
+//            mm = "October";
+//            break;
+//        case '10':
+//            mm = "November";
+//            break;
+//        case '11':
+//            mm = "December";
+//            break;
+//        default:
+//            mm = null;
+//            console.log(`Month ${dateObj.getMonth().toString()} not accounted for`);
+//    }
+//
+//    return mm + " " + dd + ", " + yyyy
+//}
+//
+//function todaysDate() {
+//    const today = new Date()
+//    return convertDate(today)
+//}
 
 const celebSchema = new mongoose.Schema({
     name: {type: String, required: true},
@@ -75,15 +75,11 @@ const celebSchema = new mongoose.Schema({
 
 const celebPlayedSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    date: {type: String, default: todaysDate()}
+    date: {type: String, required: true}
 });
 
 const Celeb = new mongoose.model("celeb", celebSchema);
 const playedCeleb = new mongoose.model("PlayedCeleb", celebPlayedSchema);
-
-function getAllCelebs() {
-    return Celeb.find({}).exec();
-};
 
 function getCelebPlayed(celebName) {
     return playedCeleb.findOne({name: celebName}).exec();
@@ -93,63 +89,15 @@ function getCelebData(celebName) {
     return Celeb.find({name: celebName}).exec();
 }
 
-function checkForNewDate() {
-    const today = todaysDate();
-    return playedCeleb.findOne({date: today}).exec();
+function getTodaysCeleb(date) {
+    return playedCeleb.findOne({date: date}).exec();
 }
 
-async function getNewCeleb() {
-    const celebs = await getAllCelebs();
-    var nCelebs = celebs.length;
-    var newCelebFound = false;
-    
-    var newCeleb = null;
-    var currentCeleb;
-    var iCeleb;
-    var celebPlayed;
-    var playedToday
-
-    while (!newCelebFound) {
-        iCeleb = Math.floor(Math.random() * nCelebs);
-        currentCeleb = celebs[iCeleb];
-        celebPlayed = await getCelebPlayed(currentCeleb.name);
-        playedToday = await checkForNewDate()
-        if (!playedToday) {
-            if (!celebPlayed) {
-                newCelebFound = true;
-                newCeleb = currentCeleb;
-                const newPlayedCeleb = new playedCeleb({name: currentCeleb.name});
-                newPlayedCeleb.save(function(err) {
-                    if (err) {
-                        console.log(`Error saving celeb: ${err}`)
-                    } else {
-                        console.log(`${newPlayedCeleb.name} added to database on ${newPlayedCeleb.date}`);
-                    }
-                });
-        } else {
-            newCelebFound = true;
-            newCeleb = await getCelebData(playedCeleb.name)
-        }
-        
-        }                   
-    }
-    return newCeleb;
-}
-
-app.get("/get-celeb-data", async function(req, res) {
-
-    var celebPlayedToday = await checkForNewDate();
-    var newCelebrity;
-
-    if (!celebPlayedToday) {
-        newCelebrity = await getNewCeleb();
-    } else {
-        newCelebrity = await getCelebData(celebPlayedToday.name);
-    }
-
-    res.json(newCelebrity[0]);
-
-})
+app.get("/get-celeb-data/:date", async function(req, res) {
+    var todaysCeleb = await getTodaysCeleb(req.params.date);
+    var celebData = await getCelebData(todaysCeleb.name)
+    res.json(celebData[0])
+});
 
 
 app.get('*', function (req, res) {
@@ -158,4 +106,4 @@ app.get('*', function (req, res) {
 
 app.listen(port, function() {
     console.log(`Listening on port ${port}`)
-})
+});
