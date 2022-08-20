@@ -4,6 +4,7 @@
 
 .form-control:disabled, select:disabled, input:disabled {
     background-color: rgba(233, 236, 239, 1);
+    opacity: 1!important;
 }
 
 input:disabled, select:disabled {
