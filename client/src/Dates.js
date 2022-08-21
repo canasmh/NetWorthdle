@@ -62,4 +62,29 @@ function yesterdaysDate() {
     return convertDate(yesterday)
 }
 
-export {todaysDate, yesterdaysDate}
+function midnightTomorrow() {
+    const today = new Date();
+    const tomorrow = new Date(today);
+
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+
+    return tomorrow;
+}
+
+function timeTillTomorrow() {
+    const today = new Date();
+    const diff = Math.round((midnightTomorrow() - today) / 1000);
+
+    var hours = Math.floor(diff / 3600);
+    var remainder = diff % 3600;
+    var minutes = Math.floor(remainder / 60);
+    remainder = remainder % 60;
+    var seconds = Math.round(remainder);
+    // console.log(`${hours}:${minutes}:${seconds}`)
+
+    return {hours: hours, minutes: minutes, seconds: seconds}
+
+}
+
+export {todaysDate, yesterdaysDate, timeTillTomorrow}

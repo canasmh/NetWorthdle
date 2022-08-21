@@ -124,6 +124,27 @@ div.stats-graph {
     /* border-radius: 15px; */
 }
 
+div.timer {
+    margin: 24px auto 8px;
+}
+div.timer p {
+    text-align: center;
+    margin: 5px auto;
+}
+
+.countdown-timer {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 auto 10px;
+}
+
+.timer-hr {
+    margin: 16px auto;
+    opacity: 1;
+    width: 85%;
+}
+
 @media only screen and (min-width: 600px) {
     .modal-body p {
         margin: 36px auto;

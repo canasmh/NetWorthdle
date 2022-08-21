@@ -4,10 +4,15 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./GameModals.css";
-import { todaysDate } from "./Dates";
+import { todaysDate, timeTillTomorrow } from "./Dates";
 
 function GameStats(props) {
+  const [timer, setTimer] = React.useState({hours: null, minutes: null, seconds: null})
   var barWidths = [0, 0, 0, 0];
+  setTimeout(() => {
+    var time = timeTillTomorrow();
+    setTimer({hours: String(time.hours).padStart(2, '0'), minutes: String(time.minutes).padStart(2, '0'), seconds: String(time.seconds).padStart(2, '0')})},
+  1000)
 
   if (localStorage.wonOnFirst && localStorage.wonOnSecond && localStorage.wonOnThird && localStorage.wonOnFourth && localStorage.gamesPlayed !== 0) {
     var maxBar = 1;
@@ -79,6 +84,7 @@ function GameStats(props) {
             <p className="stats-info">{!localStorage.currentStreak ? "loading.." : localStorage.maxStreak}</p>
           </Col>
         </Row>
+        
         <div className="stats-graph">
           <p>1</p><div className="stats-bar" style={{width: barWidths[0] + "%", backgroundColor: localStorage.guesses && localStorage.guesses.split(",").length === 1 ? "#5A8F7B" : "#373737"}}>{localStorage.wonOnFirst !== "0" ? localStorage.wonOnFirst : ""}</div>
           <br/>
@@ -88,8 +94,16 @@ function GameStats(props) {
           <br/>
           <p>4</p><div className="stats-bar" style={{width: barWidths[3] + "%", backgroundColor: localStorage.guesses && localStorage.guesses.split(",").length === 4 && localStorage.gameWon === "true" ? "#5A8F7B" : "#373737"}}>{localStorage.wonOnFourth !== "0" ? localStorage.wonOnFourth : ""}</div>
         </div>
+        {localStorage.lastPlayed === todaysDate() &&
+        <div className="timer">
+        <hr className="timer-hr"></hr>
+          <p>Play again in:</p>
+          <p className="countdown-timer">{timer.hours}:{timer.minutes}:{timer.seconds}</p>
+        <hr className="timer-hr"></hr>
+        </div>}
       </Modal.Body>
       <Modal.Footer>
+      
         <Button onClick={props.onHide} variant="outline-light">Close</Button>
       </Modal.Footer>
     </Modal>
