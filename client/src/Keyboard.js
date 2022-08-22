@@ -5,6 +5,8 @@ import "./Keyboard.css";
 
 function Keyboard(props) {
 
+    // TODO: Make separate functions for the enter and delete buttons
+
     var gamePlayed;
 
     if (localStorage.lastPlayed === todaysDate()) {
