@@ -1,15 +1,13 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import './App.css';
 import Celeb from './Celeb';
 import GameBoard from './GameBoard';
+import BuyMeCoffee from './CoffeeModal';
 import { todaysDate, yesterdaysDate } from './Dates';
 import Header from './Header';
 import Keyboard from './Keyboard';
 import GameStats from './GameStats';
 import GameHelp from './GameHelp';
-
-
-import { useState } from 'react';
 
 function App() {
 
@@ -19,6 +17,7 @@ function App() {
   const [moneyUnit, setMoneyUnit] = useState("thousand");
   const [gameWon, setGameWon] = useState(false);
   const [statsShow, setStatsShow] = useState(false);
+  const [coffeeShow, setCoffeeShow] = useState(true);
   const [helpShow, setHelpShow] = useState(false);
   const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
   const [gamePlayChecked, setGamePlayChecked] = useState(false);
@@ -29,7 +28,7 @@ function App() {
     fourthRow: []
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("/get-celeb-data/" + todaysDate())
       .then((res) => res.json())
       .then((data) => setCelebData(data));
@@ -151,6 +150,7 @@ function App() {
     <div className="app">
       <GameStats show={statsShow} onHide={() => setStatsShow(false)} netWorth={!celebData ? "Loading..." : celebData.net_worth} name={!celebData ? "Loading..." : celebData.name}/>
       <GameHelp show={helpShow} onHide={() => setHelpShow(false)}  />
+      <BuyMeCoffee show={coffeeShow} onHide={() => setCoffeeShow(false)} />
       <Header showStats={setStatsShow} showHelp={setHelpShow}/>
       <Celeb name={!celebData ? "Loading..." : celebData.name} birthday={!celebData ? "Loading..." : celebData.birthday} occupation={!celebData ? "Loading..." : celebData.occupation} nationality={!celebData ? "Loading..." : celebData.nationality}/>
       <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit} tileClasses={tileClasses}/>
