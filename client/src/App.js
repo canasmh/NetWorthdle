@@ -17,7 +17,7 @@ function App() {
   const [moneyUnit, setMoneyUnit] = useState("thousand");
   const [gameWon, setGameWon] = useState(false);
   const [statsShow, setStatsShow] = useState(false);
-  const [coffeeShow, setCoffeeShow] = useState(true);
+  const [coffeeShow, setCoffeeShow] = useState(false);
   const [helpShow, setHelpShow] = useState(false);
   const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
   const [gamePlayChecked, setGamePlayChecked] = useState(false);
@@ -151,7 +151,7 @@ function App() {
       <GameStats show={statsShow} onHide={() => setStatsShow(false)} netWorth={!celebData ? "Loading..." : celebData.net_worth} name={!celebData ? "Loading..." : celebData.name}/>
       <GameHelp show={helpShow} onHide={() => setHelpShow(false)}  />
       <BuyMeCoffee show={coffeeShow} onHide={() => setCoffeeShow(false)} />
-      <Header showStats={setStatsShow} showHelp={setHelpShow}/>
+      <Header showStats={setStatsShow} showHelp={setHelpShow} showCoffee={setCoffeeShow}/>
       <Celeb name={!celebData ? "Loading..." : celebData.name} birthday={!celebData ? "Loading..." : celebData.birthday} occupation={!celebData ? "Loading..." : celebData.occupation} nationality={!celebData ? "Loading..." : celebData.nationality}/>
       <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit} tileClasses={tileClasses}/>
       <Keyboard moneyUnit={moneyUnit} nGuesses={guesses.length} currentGuess={currentGuess} setGuesses={setGuesses} setCurrentGuess={setCurrentGuess} setTileClasses={setTileClasses} netWorth={!celebData ? "Loading..." : celebData.net_worth} setMoneyUnit={setMoneyUnit} won={setGameWon}/>

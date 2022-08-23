@@ -32,6 +32,18 @@ div.header h1 {
     font-family: 'Roboto Slab', serif;
 }
 
+.fa-heart {
+    margin-right: 15px;
+    
+}
+
+.fa-heart:hover, .fa-chart-simple:hover, .fa-circle-info:hover {
+    cursor:pointer;
+}
+
+/* .fa-solid:hover {
+    cursor:pointer
+} */
 @media only screen and (max-width: 320px) {
     div.header h1 {
         margin: 10px auto;
