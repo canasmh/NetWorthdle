@@ -17,7 +17,7 @@ function App() {
   const [moneyUnit, setMoneyUnit] = useState("thousand");
   const [gameWon, setGameWon] = useState(false);
   const [statsShow, setStatsShow] = useState(false);
-  const [coffeeShow, setCoffeeShow] = useState(true);
+  const [coffeeShow, setCoffeeShow] = useState(false);
   const [helpShow, setHelpShow] = useState(false);
   const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
   const [gamePlayChecked, setGamePlayChecked] = useState(false);
