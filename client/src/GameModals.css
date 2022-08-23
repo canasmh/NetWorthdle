@@ -19,6 +19,33 @@
     margin: 24px auto;
 }
 
+.coffee-paragraph {
+    line-height: 1.8;
+}
+
+.coffee-button {
+    background-color: #FFF;/*#81CACF;*/
+    border: 1px solid #355764;
+    font-weight: 500;
+}
+
+.coffee-link {
+    text-decoration: none;
+    color: #355764;
+}
+
+.coffee-button:hover{
+    border: 1px solid #FFF;
+    background-color: #81CACF;
+    color: #FFF!important;
+}
+
+.coffee-link:hover {
+    color: #355764;
+}
+
+
+
 .modal-body p:first-child {
     margin-top: 12px;
 }
