@@ -145,7 +145,7 @@ function Keyboard(props) {
     }
     
     return (
-        <div className="keyboard">                                                                                                                                                                          
+        <section className="keyboard">                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                  
                 <button className={"keyboard-button " + keyClass[1]} id="n1" onClick={!gamePlayed ? updateCurrentGuess : null}>1</button>                                                                                                  
                 <button className={"keyboard-button " + keyClass[2]} id="n2" onClick={!gamePlayed ? updateCurrentGuess : null}>2</button>                                                                                                  
@@ -166,7 +166,7 @@ function Keyboard(props) {
                 <button className={"keyboard-button " + keyClass[0]} id="n0" onClick={!gamePlayed ? updateCurrentGuess : null}>0</button>                                                                                                  
                 <button className="keyboard-button" id="enter" onClick={!gamePlayed ? enterGuess : null}><FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" /></button>                                                                   
             </div>                                                                                                                                                                                          
-        </div>
+        </section>
     )
 }
 
