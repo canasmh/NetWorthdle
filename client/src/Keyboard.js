@@ -130,6 +130,8 @@ function Keyboard(props) {
 
         if (currentGuess.length < 3) {
             console.log("Not enough Entries");
+        } else if (!unit) {
+            console.log("Please enter a unit")
         } else {
             // Check the guess
             checkGuess(currentGuess + " " + unit);
@@ -139,7 +141,7 @@ function Keyboard(props) {
 
             // Reset Guess
             props.setCurrentGuess("");
-            props.setMoneyUnit("thousand");
+            props.setMoneyUnit("");
         }
 
     }

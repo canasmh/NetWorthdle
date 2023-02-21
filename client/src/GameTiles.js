@@ -37,6 +37,7 @@ function GameTiles(props) {
                 <Form.Control bsPrefix={classes[2]} type="text" value={!guess ? "" : guess[2]} placeholder="" readOnly disabled={props.disable} />
                 <Form.Select bsPrefix={classes[3]} aria-label="Default select example" onChange={changeUnit} readOnly disabled={props.disable}>
                     {localStorage.lastPlayed === todaysDate()  && <option>{props.guess ? props.guess.slice(4, 5).toUpperCase() + props.guess.slice(5) : ""}</option>}
+                    <option value=""></option>
                     <option value="thousand">Thousand</option>                                                                                                                           
                     <option value="million">Million</option>                                                                                                                             
                     <option value="billion">Billion</option>                                                                                                                                 
