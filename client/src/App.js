@@ -11,14 +11,14 @@ import GameHelp from './GameHelp';
 
 function App() {
 
-  const [celebData, setCelebData] = useState(null);
-  const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, setGuesses] = useState([]);
-  const [moneyUnit, setMoneyUnit] = useState("thousand");
-  const [gameWon, setGameWon] = useState(false);
-  const [statsShow, setStatsShow] = useState(false);
-  const [coffeeShow, setCoffeeShow] = useState(false);
-  const [helpShow, setHelpShow] = useState(false);
+  const [celebData, setCelebData] = useState(null); // initialize celebrity data (an object)
+  const [currentGuess, setCurrentGuess] = useState(""); // initialize current guess (i.e., 320 million)
+  const [guesses, setGuesses] = useState([]); // list of guesses composed from final 'currentGuess' state
+  const [moneyUnit, setMoneyUnit] = useState(""); // money unit (i.e., 'thousand')
+  const [gameWon, setGameWon] = useState(false); 
+  const [statsShow, setStatsShow] = useState(false); // show stats modal
+  const [coffeeShow, setCoffeeShow] = useState(false); // show coffee modal
+  const [helpShow, setHelpShow] = useState(false); // show instructions modal
   const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
   const [gamePlayChecked, setGamePlayChecked] = useState(false);
   const [tileClasses, setTileClasses] = useState({
@@ -65,7 +65,6 @@ function App() {
       localStorage.setItem("fourthGuess", "");
       localStorage.setItem("guesses", "");
     } else {
-  
       setTileClasses({
         firstRow: localStorage.firstGuess.length !== 0 ? localStorage.firstGuess.split(",") : [],
         secondRow: localStorage.secondGuess.length !== 0 ? localStorage.secondGuess.split(",")  : [],
