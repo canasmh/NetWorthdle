@@ -1,0 +1,5 @@
+const UPDATE_THEME = "UPDATE_THEME";
+
+export {
+    UPDATE_THEME
+}
