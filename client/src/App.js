@@ -1,13 +1,15 @@
 import {React, useState, useEffect} from 'react';
 import './App.css';
-import Celeb from './Celeb';
-import GameBoard from './GameBoard';
-import BuyMeCoffee from './CoffeeModal';
+import Celeb from './components/Celeb';
+import GameBoard from './components/GameBoard';
+import BuyMeCoffee from './components/modals/CoffeeModal';
+import ThemesModal from "./components/modals/ThemesModal";
 import { todaysDate, yesterdaysDate } from './Dates';
-import Header from './Header';
-import Keyboard from './Keyboard';
-import GameStats from './GameStats';
-import GameHelp from './GameHelp';
+import { useSelector } from 'react-redux';
+import Header from './components/Header';
+import Keyboard from './components/Keyboard';
+import GameStats from './components/modals/GameStats';
+import GameHelp from './components/modals/GameHelp';
 
 function App() {
 
