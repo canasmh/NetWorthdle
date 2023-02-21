@@ -32,12 +32,11 @@ header.header h1 {
     font-family: 'Roboto Slab', serif;
 }
 
-.fa-heart {
+.fa-heart, .fa-circle-info {
     margin-right: 15px;
-    
 }
 
-.fa-heart:hover, .fa-chart-simple:hover, .fa-circle-info:hover {
+.fa-heart:hover, .fa-chart-simple:hover, .fa-circle-info:hover, .fa-palette:hover {
     cursor:pointer;
 }
 
