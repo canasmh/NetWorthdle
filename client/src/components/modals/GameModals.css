@@ -1,0 +1,185 @@
+.modal-content {
+    background-color: #355764;
+    border-radius: 15px;
+    color: #FFF;
+    letter-spacing: 2px;
+    border: 2px solid #FFF;
+}
+
+.modal-title {
+    margin: 0 auto;
+    font-family: 'Roboto Slab', serif;
+}
+
+.modal-body {
+    text-align: left;
+}
+
+.modal-body p {
+    margin: 24px auto;
+}
+
+.coffee-paragraph {
+    line-height: 1.8;
+}
+
+.coffee-button {
+    background-color: #FFF;/*#81CACF;*/
+    border: 1px solid #355764;
+    font-weight: 500;
+}
+
+.coffee-link {
+    text-decoration: none;
+    color: #355764;
+}
+
+.coffee-button:hover{
+    border: 1px solid #FFF;
+    background-color: #81CACF;
+    color: #FFF!important;
+}
+
+.coffee-link:hover {
+    color: #355764;
+}
+
+
+
+.modal-body p:first-child {
+    margin-top: 12px;
+}
+
+.modal-body p:last-child {
+    margin-bottom: 12px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.green-bg {
+    background-color: #5A8F7B;
+    color: #D3D3D3;
+    padding: 6px 8px;
+    font-weight: 800;
+}
+
+.yellow-bg {
+    background-color: #FFEA11;
+    color: #A9A9A9;
+    padding: 6px 8px;
+    font-weight: 800;
+}
+
+.gray-bg {
+    background-color: #373737;
+    color: #D3D3D3;
+    padding: 4px 8px;
+    font-weight: 800;
+}
+
+.gold {
+    color: #FFEA11;
+}
+
+h4.title {
+    font-size: 1.4rem;
+    margin: 10px auto;
+    font-weight: 400;
+}
+
+h5.title {
+    font-size: 20px;
+    margin: 10px auto;
+    font-weight: 300;
+    text-align: center;
+}
+
+p.net-worth {
+    font-size: 1.1rem;
+    margin: 10px auto;
+}
+
+p.stats-info {
+    text-align: center;
+    margin: 10px auto;
+    font-size: 16px;
+}
+
+p.net-worth .green {
+    color: #5A8F7B;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+.correct-bar {
+    background-color: #5A8F7B!important;
+}
+
+div.stats-graph {
+    padding: 15px auto;
+    margin: 15px auto;
+}
+
+.stats-graph p {
+    margin-right: 16px!important;
+    margin-top: 2px!important;
+    margin-bottom: 2px!important;
+    font-size: 20px!important;
+    width: 15px!important;
+    display: inline-block;
+}
+
+.stats-graph div {
+    text-align: right;
+    font-size: 12px;
+    padding-right: 8px;
+}
+
+.middle-col {
+    border-left: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+}
+
+.stats-bar {
+    display: inline-block;
+    /* width: 85%; */
+    /* width: 280px; */
+    height: 20px!important;
+    background-color: #373737;
+    /* border-radius: 15px; */
+}
+
+div.timer {
+    margin: 24px auto 8px;
+}
+div.timer p {
+    text-align: center;
+    margin: 5px auto;
+}
+
+.countdown-timer {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 auto 10px;
+}
+
+.timer-hr {
+    margin: 16px auto;
+    opacity: 1;
+    width: 85%;
+}
+
+@media only screen and (min-width: 600px) {
+    .modal-body p {
+        margin: 36px auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .modal-body p {
+        margin: 40px auto;
+    }
+}
