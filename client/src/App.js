@@ -12,6 +12,7 @@ import GameStats from './components/modals/GameStats';
 import GameHelp from './components/modals/GameHelp';
 
 function App() {
+  let theme = useSelector((state) => state.theme.theme)
 
   const [celebData, setCelebData] = useState(null); // initialize celebrity data (an object)
   const [currentGuess, setCurrentGuess] = useState(""); // initialize current guess (i.e., 320 million)
@@ -21,6 +22,7 @@ function App() {
   const [statsShow, setStatsShow] = useState(false); // show stats modal
   const [coffeeShow, setCoffeeShow] = useState(false); // show coffee modal
   const [helpShow, setHelpShow] = useState(false); // show instructions modal
+  const [themesShow, setThemesShow] = useState(false);
   const [alreadyShowedStats, setAlreadyShowedStats] = useState(false);
   const [gamePlayChecked, setGamePlayChecked] = useState(false);
   const [tileClasses, setTileClasses] = useState({
@@ -146,13 +148,18 @@ function App() {
   if (parseInt(localStorage.currentStreak) > parseInt(localStorage.maxStreak)) {
     localStorage.setItem("maxStreak", localStorage.currentStreak)
   }
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.primary;
+    document.body.style.color = theme.tertiary;
+  }, [theme])
 
   return (
     <div className="app">
       <GameStats show={statsShow} onHide={() => setStatsShow(false)} netWorth={!celebData ? "Loading..." : celebData.net_worth} name={!celebData ? "Loading..." : celebData.name}/>
+      <ThemesModal show={themesShow} onHide={() => setThemesShow(false)} />
       <GameHelp show={helpShow} onHide={() => setHelpShow(false)}  />
       <BuyMeCoffee show={coffeeShow} onHide={() => setCoffeeShow(false)} />
-      <Header showStats={setStatsShow} showHelp={setHelpShow} showCoffee={setCoffeeShow}/>
+      <Header showStats={setStatsShow} showHelp={setHelpShow} showCoffee={setCoffeeShow} showThemes={setThemesShow}/>
       <main>
         <Celeb name={!celebData ? "Loading..." : celebData.name} birthday={!celebData ? "Loading..." : celebData.birthday} occupation={!celebData ? "Loading..." : celebData.occupation} nationality={!celebData ? "Loading..." : celebData.nationality}/>
         <GameBoard guesses={guesses} currentGuess={currentGuess} setMoneyUnit={setMoneyUnit} tileClasses={tileClasses}/>
