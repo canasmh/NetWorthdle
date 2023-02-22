@@ -1,13 +1,13 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useDispatch } from "react-redux";
-import { updateTheme } from "../../redux/action-creators";
+import ColorPalette from "../ColorPalette";
+import themes from "../../themes/themeColors";
 import "./GameModals.css"
 
 function ThemesModal(props) {
   // const theme = useSelector((state) => state.theme.theme)
-  const dispatch = useDispatch();
+
   return (
     <Modal
       {...props}
@@ -22,10 +22,7 @@ function ThemesModal(props) {
       </Modal.Header>
       <Modal.Body>
       <p>We have a wide variety of themes that you can select. Preview each one to see which one works best for you!</p>
-          <button onClick={() => dispatch(updateTheme('original'))}>Original</button>
-          <button onClick={() => dispatch(updateTheme('dark'))}>Dark</button>
-          <button onClick={() => dispatch(updateTheme('light'))}>Light</button>
-          <button onClick={() => dispatch(updateTheme('highContrast'))}>High Contrast</button>
+      {themes.map(theme => <ColorPalette theme={theme}/>)}
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide} variant="outline-light">Done</Button>
