@@ -28,6 +28,7 @@ function Header(props) {
         & svg {
             font-size: 16px;
             cursor: pointer;
+            transition: color 0.2s ease-in-out;
 
             @media only screen and (max-width: 320px) {
                 font-size: 10px;
@@ -37,17 +38,26 @@ function Header(props) {
                 font-size: 28px;
             }
         }
+        & svg:hover {
+            color: ${theme.correct};
+                ${'' /* filter: brightness(80%); */}
+            }
     `
 
     const Heading = styled.h1`
         margin: 10px 0;
         font-size: 24px;
         font-weight: 600;
-        ${'' /* display: inline-block; */}
         font-family: 'Roboto Slab', serif;
 
         & span svg.fa-circle-dollar {
             cursor: default;
+            margin-right: 3px;
+            font-size: 13px;
+        }
+
+        & span svg.fa-circle-dollar:hover {
+            color: inherit;
         }
 
         @media only screen and (max-width: 320px) {
@@ -67,6 +77,7 @@ function Header(props) {
 
             & span svg.fa-circle-dollar {
                 font-size: 20px;
+                margin-right: 5px;
             }
         }
     `
@@ -84,13 +95,6 @@ function Header(props) {
             <FontAwesomeIcon icon="fa-solid fa-chart-simple" onClick={() => props.showStats(true)}/>
         </Container>
     )
-        {/* <header className="header">
-            <span className="left"><FontAwesomeIcon icon="fa-solid fa-circle-info" onClick={() => props.showHelp(true)}/><FontAwesomeIcon icon="fa-solid fa-paint-roller" onClick={() => props.showThemes(true)}/></span>
-            <h1>
-                <span className="green">Net</span><span className="gold">W<FontAwesomeIcon icon="fa-solid fa-circle-dollar" />rth</span>dle
-            </h1>
-            <span className="right"><FontAwesomeIcon icon="fa-solid fa-heart" onClick={() => props.showCoffee(true)}/><FontAwesomeIcon icon="fa-solid fa-chart-simple" onClick={() => props.showStats(true)}/></span>
-        </header> */}
 }
 
 export default Header;

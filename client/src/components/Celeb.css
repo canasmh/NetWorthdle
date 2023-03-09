@@ -1,5 +1,5 @@
 section.celeb-container h2 {
-    font-size: 32px;
+    font-size: 24px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     margin: 0.8rem 0.2rem;
@@ -13,29 +13,9 @@ section.celeb-container p {
     margin: 0.3rem auto;
 }
 
-section.celeb-container a {
-    color: #FFEA11;
-    text-decoration: none;
-    font-family: 'Roboto Slab', serif;
-}
-
-section.celeb-container a:hover {
-    color: #81CACF;
-    text-decoration: none;
-}
-
-.green {
-    color: #5A8F7B;
-  }
-
-.gold {
-    color: #FFEA11;
-}
-
 @media only screen and (max-width: 320px) {
     section.celeb-container h2 {
         margin: 8px auto;
-        font-size: 32px;
     }
 
     section.celeb-container p {
@@ -58,6 +38,7 @@ section.celeb-container a:hover {
 @media only screen and (min-width: 992px) {
     section.celeb-container h2 {
         font-size: 44px;
+        margin: 1rem auto;
     }
 
     section.celeb-container p {

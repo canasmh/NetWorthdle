@@ -2,11 +2,12 @@ import React from "react";
 import { todaysDate } from '../Dates';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./Keyboard.css";
+import { useSelector } from "react-redux";
 
 function Keyboard(props) {
 
     // TODO: Make separate functions for the enter and delete buttons
-
+    const theme = useSelector((state) => state.theme.theme)
     var gamePlayed;
 
     if (localStorage.lastPlayed === todaysDate()) {
@@ -145,28 +146,55 @@ function Keyboard(props) {
         }
 
     }
+
+    const keyClasses = {
+        correct: {
+            backgroundColor: theme.correct,
+            color: theme.correctText,
+            border: `1px solid ${theme.secondary}`
+        },
+        present: {
+            backgroundColor: theme.present,
+            color: theme.presentText,
+            border: `1px solid ${theme.secondary}`
+        },
+        absent: {
+            backgroundColor: theme.absent,
+            color: theme.absentText,
+            border: `1px solid ${theme.secondary}`
+        }
+    }
+
+    const defaultStyle = {
+        color: theme.tertiary,
+        backgroundColor: theme.primary,
+        border: `1px solid ${theme.secondary}`
+
+    }
+
+    console.log(`The key classes are: ${keyClass}`)
     
     return (
         <section className="keyboard">                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                  
-                <button className={"keyboard-button " + keyClass[1]} id="n1" onClick={!gamePlayed ? updateCurrentGuess : null}>1</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[2]} id="n2" onClick={!gamePlayed ? updateCurrentGuess : null}>2</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[3]} id="n3" onClick={!gamePlayed ? updateCurrentGuess : null}>3</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[1] ? keyClasses[keyClass[1]] : defaultStyle} id="n1" onClick={!gamePlayed ? updateCurrentGuess : null}>1</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[2] ? keyClasses[keyClass[2]] : defaultStyle} id="n2" onClick={!gamePlayed ? updateCurrentGuess : null}>2</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[3] ? keyClasses[keyClass[3]] : defaultStyle} id="n3" onClick={!gamePlayed ? updateCurrentGuess : null}>3</button>                                                                                                  
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
-                <button className={"keyboard-button " + keyClass[4]} id="n4" onClick={!gamePlayed ? updateCurrentGuess : null}>4</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[5]} id="n5" onClick={!gamePlayed ? updateCurrentGuess : null}>5</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[6]} id="n6" onClick={!gamePlayed ? updateCurrentGuess : null}>6</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[4] ? keyClasses[keyClass[4]] : defaultStyle} id="n4" onClick={!gamePlayed ? updateCurrentGuess : null}>4</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[5] ? keyClasses[keyClass[5]] : defaultStyle} id="n5" onClick={!gamePlayed ? updateCurrentGuess : null}>5</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[6] ? keyClasses[keyClass[6]] : defaultStyle} id="n6" onClick={!gamePlayed ? updateCurrentGuess : null}>6</button>                                                                                                  
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
-                <button className={"keyboard-button " + keyClass[7]} id="n7" onClick={!gamePlayed ? updateCurrentGuess : null}>7</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[8]} id="n8" onClick={!gamePlayed ? updateCurrentGuess : null}>8</button>                                                                                                  
-                <button className={"keyboard-button " + keyClass[9]} id="n9" onClick={!gamePlayed ? updateCurrentGuess : null}>9</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[7] ? keyClasses[keyClass[7]] : defaultStyle} id="n7" onClick={!gamePlayed ? updateCurrentGuess : null}>7</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[8] ? keyClasses[keyClass[8]] : defaultStyle} id="n8" onClick={!gamePlayed ? updateCurrentGuess : null}>8</button>                                                                                                  
+                <button className="keyboard-button" style={keyClass[9] ? keyClasses[keyClass[9]] : defaultStyle} id="n9" onClick={!gamePlayed ? updateCurrentGuess : null}>9</button>                                                                                                  
             </div>                                                                                                                                                                                          
             <div className="keyboard-row">                                                                                                                                                                     
-                <button className="keyboard-button" id="backspace" onClick={!gamePlayed ? deleteGuessEntry : null}><FontAwesomeIcon icon="fa-solid fa-delete-right" /></button>                                                                  
-                <button className={"keyboard-button " + keyClass[0]} id="n0" onClick={!gamePlayed ? updateCurrentGuess : null}>0</button>                                                                                                  
-                <button className="keyboard-button" id="enter" onClick={!gamePlayed ? enterGuess : null}><FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" /></button>                                                                   
+                <button className="keyboard-button" style={defaultStyle} id="backspace" onClick={!gamePlayed ? deleteGuessEntry : null}><FontAwesomeIcon icon="fa-solid fa-delete-right" /></button>                                                                  
+                <button className="keyboard-button" style={keyClass[0] ? keyClasses[keyClass[0]] : defaultStyle} id="n0" onClick={!gamePlayed ? updateCurrentGuess : null}>0</button>                                                                                                  
+                <button className="keyboard-button" style={defaultStyle} id="enter" onClick={!gamePlayed ? enterGuess : null}><FontAwesomeIcon icon="fa-solid fa-arrow-turn-down-left" /></button>                                                                   
             </div>                                                                                                                                                                                          
         </section>
     )

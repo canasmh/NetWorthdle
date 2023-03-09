@@ -1,9 +1,30 @@
 .modal-content {
-    background-color: #355764;
     border-radius: 15px;
-    color: #FFF;
     letter-spacing: 2px;
+}
+
+.content-original {
+    background-color: #355764;
+    color: #FFF;
     border: 2px solid #FFF;
+}
+
+.content-dark {
+    background-color: #111111;
+    color: #EEEEEE;
+    border: 2px solid #EEEEEE;
+}
+
+.content-light {
+    background-color: #EEEEEE;
+    color: #333333;
+    border: 2px solid #333333;
+}
+
+.content-highContrast {
+    background-color: #000000;
+    color: #F2F54F;
+    border: 2px solid #F2F54F;
 }
 
 .modal-title {
@@ -44,8 +65,6 @@
     color: #355764;
 }
 
-
-
 .modal-body p:first-child {
     margin-top: 12px;
 }
@@ -56,27 +75,6 @@
 
 .centered {
     text-align: center;
-}
-
-.green-bg {
-    background-color: #5A8F7B;
-    color: #D3D3D3;
-    padding: 6px 8px;
-    font-weight: 800;
-}
-
-.yellow-bg {
-    background-color: #FFEA11;
-    color: #A9A9A9;
-    padding: 6px 8px;
-    font-weight: 800;
-}
-
-.gray-bg {
-    background-color: #373737;
-    color: #D3D3D3;
-    padding: 4px 8px;
-    font-weight: 800;
 }
 
 .gold {
