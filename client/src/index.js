@@ -8,6 +8,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/pro-solid-svg-icons'
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import ReactGA from 'react-ga';
+ReactGA.initialize(process.env.REACT_APP_GA_ID);
 
 library.add(fas)
 
