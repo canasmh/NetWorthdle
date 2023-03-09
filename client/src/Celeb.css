@@ -1,11 +1,11 @@
-div.celeb-container h2 {
+section.celeb-container h2 {
     font-size: 32px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     margin: 0.8rem 0.2rem;
 }
 
-div.celeb-container p {
+section.celeb-container p {
     font-size: 14px;
     margin: 0.5rem auto;
     font-family: 'Roboto Slab', serif;
@@ -13,13 +13,13 @@ div.celeb-container p {
     margin: 0.3rem auto;
 }
 
-div.celeb-container a {
+section.celeb-container a {
     color: #FFEA11;
     text-decoration: none;
     font-family: 'Roboto Slab', serif;
 }
 
-div.celeb-container a:hover {
+section.celeb-container a:hover {
     color: #81CACF;
     text-decoration: none;
 }
@@ -33,34 +33,34 @@ div.celeb-container a:hover {
 }
 
 @media only screen and (max-width: 320px) {
-    div.celeb-container h2 {
+    section.celeb-container h2 {
         margin: 8px auto;
         font-size: 32px;
     }
 
-    div.celeb-container p {
+    section.celeb-container p {
         font-size: 12px;
         margin: 0.5rem auto;
     }
 }
 
 @media only screen and (min-width: 600px) {
-    div.celeb-container h2 {
+    section.celeb-container h2 {
         font-size: 52px;
     }
 
-    div.celeb-container p {
+    section.celeb-container p {
         font-size: 24px;
         margin: 0.5rem auto;
     }
 }
 
 @media only screen and (min-width: 992px) {
-    div.celeb-container h2 {
+    section.celeb-container h2 {
         font-size: 44px;
     }
 
-    div.celeb-container p {
+    section.celeb-container p {
         font-size: 16px;
     }
 }

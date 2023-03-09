@@ -1,11 +1,11 @@
-div.header {
+header.header {
     border: 1px solid #81CACF;
     border-left: none;
     border-right: none;
     margin: 10px auto;
     width: 80%;
 }
-div.header h1 {
+header.header h1 {
     margin: 10px auto;
     font-size: 24px;
     font-weight: 600;
@@ -45,7 +45,7 @@ div.header h1 {
     cursor:pointer
 } */
 @media only screen and (max-width: 320px) {
-    div.header h1 {
+    header.header h1 {
         margin: 10px auto;
         font-size: 20px;
     }
@@ -57,7 +57,7 @@ div.header h1 {
 }
 
 @media only screen and (min-width: 600px) {
-    div.header h1 {
+    header.header h1 {
         margin: 16px auto;
         font-size: 40px;
     }
@@ -74,7 +74,7 @@ div.header h1 {
 }
 
 @media only screen and (min-width: 992px) {
-    div.header h1 {
+    header.header h1 {
         margin: 14px auto;
         font-size: 32px;
     }

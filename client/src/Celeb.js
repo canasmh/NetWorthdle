@@ -27,7 +27,7 @@ function Celeb(props) {
     }
 
     return (
-        <div className="celeb-container">
+        <section className="celeb-container">
             <h1>{name}</h1>
             <p><strong>Occupation: </strong>{occupation}</p>
             <Container>
@@ -39,7 +39,7 @@ function Celeb(props) {
                     <Col xsm={6}><p><strong>Nationality: </strong>{props.nationality}</p></Col>
                 </Row>
             </Container>
-        </div>
+        </section>
     )
 }
 
