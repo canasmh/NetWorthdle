@@ -5,8 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/pro-solid-svg-icons'
-import ReactGA from 'react-ga';
-ReactGA.initialize(process.env.REACT_APP_GA_ID);
 
 library.add(fas)
 
